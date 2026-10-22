@@ -1,0 +1,61 @@
+/* ---------- Promises: a quiet stretch of plain type, everything on one centred axis ---------- */
+.promises {
+  position: relative; z-index: 5;
+  margin: calc(var(--inset) * -1 - 1px) var(--inset) var(--inset);
+  border: 1px solid var(--line-strong);
+  background: var(--l1);
+}
+.promises__inner {
+  max-width: var(--max); margin-inline: auto;
+  padding: clamp(96px, 14vw, 200px) var(--pad) clamp(96px, 12vw, 176px);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.promises__title {
+  font: 500 var(--fs-micro)/1 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--ink-300);
+  display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: clamp(48px, 7vw, 104px);
+}
+.promises__title::before, .promises__title::after { content: ""; width: 24px; height: 1px; background: currentColor; }
+
+.promises__list {
+  list-style: none; margin: 0; padding: 0; counter-reset: promise; width: 100%;
+  display: grid; gap: clamp(72px, 11vw, 160px); justify-items: center;
+}
+.promise {
+  counter-increment: promise;
+  display: flex; flex-direction: column; align-items: center; width: 100%;
+}
+/* keynote number, the same circle as the plan legend above */
+.promise::before {
+  content: counter(promise);
+  margin-bottom: var(--s-5);
+  width: 2rem; height: 2rem; border-radius: 50%; border: 1.25px solid var(--ink-100);
+  display: grid; place-items: center;
+  font: 500 0.75rem/1 var(--font-mono); color: var(--ink-100);
+}
+/* One line, never broken: the size follows the screen width so the longest promise always fits. */
+.promise__line {
+  font: 700 min(var(--fs-display-l), 6.2vw)/1.04 var(--font-display); letter-spacing: var(--tr-display);
+  color: var(--ink-100); white-space: nowrap;
+}
+.promise__line .w { display: inline-block; white-space: pre; }
+.promise__proof {
+  margin-top: var(--s-5); max-width: 44ch;
+  font-size: var(--fs-body-l); color: var(--ink-300); text-wrap: balance;
+}
+.promises__link { margin-top: clamp(64px, 9vw, 128px); }
+
+/* Single-canvas mode (added by promises.js when motion is allowed):
+   the section fills the screen and the promises sit on top of each other, taking turns. */
+.promises--stage .promises__inner {
+  height: 100vh; height: 100svh;
+  padding: calc(var(--mh) + var(--inset) + var(--s-6)) var(--pad) var(--s-7);
+}
+.promises--stage .promises__title { margin-bottom: 0; }
+.promises--stage .promises__list { flex: 1; min-height: 0; gap: 0; align-items: center; }
+.promises--stage .promise { grid-area: 1 / 1; }
+.promises--stage .promises__link { margin-top: 0; }
+
+@media (max-width: 760px) {
+  .promise__line { font-size: 7.4vw; }
+  .promise__proof { font-size: var(--fs-body); max-width: 30ch; }
+}

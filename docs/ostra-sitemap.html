@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Ostra Sitemap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+:root{
+  --l0:#0E0C09;--l1:#14120F;--l2:#1C1915;--l3:#26221C;--line:#3A342B;--line-strong:#52493C;
+  --bone-100:#EFE9DD;--bone-300:#BDB5A6;--bone-500:#8F8778;
+  --signal-300:#FF7A3D;--signal-400:#FF5500;--on-signal:#14120F;--signal-glow:rgba(255,85,0,.25);
+  --cyan-400:#00E5FF;--cyan-wash:rgba(0,229,255,.12);
+  --ok:#8DB38A;--warn:#CDBB6B;--err:#E07F76;--info:#84A9BD;
+  --font-display:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --fs-display:clamp(2.25rem,1.0429rem + 4.9524vw,5rem);
+  --fs-h2:clamp(1.5rem,1.2214rem + 1.1429vw,2.25rem);
+  --fs-h3:clamp(1.125rem,1.0107rem + .5714vw,1.4rem);
+  --fs-body:clamp(1rem,.9768rem + .0952vw,1.0625rem);
+  --fs-small:.875rem;--fs-mono:.78rem;--fs-micro:.6875rem;
+  --ease-ink:cubic-bezier(.19,1,.22,1);--ease-standard:cubic-bezier(.2,0,0,1);
+  --gutter:clamp(16px,2.2vw,32px);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--l1);color:var(--bone-100);font-family:var(--font-body);font-size:var(--fs-body);line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--l1);z-index:60}
+:focus-visible{outline:2px solid var(--cyan-400);outline-offset:3px}
+::selection{background:var(--signal-400);color:var(--on-signal)}
+.wrap{max-width:1440px;margin-inline:auto;padding-inline:max(var(--gutter),env(safe-area-inset-left,0px)) max(var(--gutter),env(safe-area-inset-right,0px))}
+p{margin:0}h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--l1) 86%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:52px}
+.brand{font-family:var(--font-display);font-weight:700;font-size:1.2rem;letter-spacing:-.035em;text-decoration:none;white-space:nowrap}
+.brand small{font-family:var(--font-mono);font-weight:400;font-size:var(--fs-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--bone-300);margin-left:.6rem}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto;min-width:0}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-family:var(--font-mono);font-size:var(--fs-micro);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--bone-300);padding:.55rem .7rem;white-space:nowrap;border-radius:2px}
+.nav a:hover{color:var(--bone-100);background:var(--l2)}
+@media(max-width:760px){.brand small{display:none}}
+.sheet{padding-block:clamp(48px,7vw,96px);border-top:1px solid var(--line);scroll-margin-top:52px}
+.sheet:first-of-type{border-top:0}
+.eyebrow{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--bone-300);margin-bottom:12px}
+h1.t,h2.t{font-family:var(--font-display);font-weight:700;letter-spacing:-.035em;line-height:1.08;font-size:var(--fs-display)}
+h2.t{font-size:clamp(1.75rem,1.2rem + 2.4vw,3.25rem)}
+.lede{font-size:clamp(1.0625rem,.99rem + .29vw,1.25rem);color:var(--bone-300);max-width:56ch;margin-top:16px}
+.label{font-family:var(--font-mono);font-size:var(--fs-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--bone-300)}
+.mono{font-family:var(--font-mono);font-size:var(--fs-mono)}
+.muted{color:var(--bone-300)}
+.note{font-size:var(--fs-small);color:var(--bone-300);max-width:74ch;margin-top:12px}
+.block{margin-top:56px}
+.sub{font-weight:500;font-size:var(--fs-h3);letter-spacing:-.01em;margin-bottom:14px}
+.stats{display:flex;flex-wrap:wrap;gap:0;margin-top:36px;border:1px solid var(--line);border-radius:2px;background:var(--l2);width:max-content;max-width:100%}
+.stats div{padding:14px 22px;border-right:1px solid var(--line);min-width:0}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-family:var(--font-display);font-weight:700;letter-spacing:-.035em;font-size:1.9rem;line-height:1.1;font-variant-numeric:tabular-nums}
+@media(max-width:560px){.stats div{flex:1 1 45%;border-bottom:1px solid var(--line)}}
+
+/* decisions + tables */
+.rows{border-top:1px solid var(--line)}
+.rows>div{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.rows b{font-weight:500}
+@media(max-width:820px){.rows>div{grid-template-columns:minmax(0,1fr);gap:6px}}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:2px;background:var(--l2)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:var(--fs-small)}
+th{font-family:var(--font-mono);font-size:var(--fs-micro);letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--bone-300);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--bone-300)}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--bone-100)}
+td.m{font-family:var(--font-mono);font-size:var(--fs-mono);color:var(--bone-100);white-space:nowrap}
+.tag{display:inline-block;font-family:var(--font-mono);font-size:var(--fs-micro);letter-spacing:.08em;text-transform:uppercase;padding:.1rem .4rem;border:1px solid var(--line-strong);border-radius:2px;color:var(--bone-300);white-space:nowrap}
+.tag.ok{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 45%,transparent)}
+.tag.no{color:var(--err);border-color:color-mix(in srgb,var(--err) 45%,transparent)}
+.tag.add{color:var(--info);border-color:color-mix(in srgb,var(--info) 45%,transparent);border-style:dashed}
+
+/* controls */
+.toolbar{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-bottom:18px}
+.check{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-small);color:var(--bone-300);cursor:pointer}
+.check input{accent-color:var(--signal-400);width:1rem;height:1rem}
+.btn{appearance:none;font:500 var(--fs-small)/1 var(--font-body);padding:.8rem 1.1rem;border:1px solid var(--line-strong);background:transparent;color:var(--bone-100);border-radius:2px;cursor:pointer;transition:background .24s var(--ease-standard),border-color .24s var(--ease-standard)}
+.btn:hover{border-color:var(--bone-300);background:var(--l3)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:var(--fs-small);color:var(--bone-300)}
+.legend i{display:inline-block;width:22px;height:12px;border:1px solid var(--bone-300);vertical-align:-1px;margin-right:6px;border-radius:2px}
+.legend i.add{border-style:dashed;border-color:var(--info)}
+.legend i.util{border-color:var(--line-strong);background:var(--l0)}
+
+/* tree */
+.map{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}
+@media(max-width:1180px){.map{grid-template-columns:minmax(0,1fr)}}
+.tree{overflow-x:auto;padding-bottom:8px}
+.root{display:flex;flex-direction:column;align-items:center;min-width:960px}
+.root>.nd{width:260px}
+.stem{width:1px;height:22px;background:var(--line-strong)}
+.cols{display:grid;grid-template-columns:repeat(5,minmax(188px,1fr));gap:12px;width:100%;border-top:1px solid var(--line-strong);position:relative}
+.col{position:relative;padding-top:22px}
+.col::before{content:"";position:absolute;left:50%;top:0;width:1px;height:22px;background:var(--line-strong)}
+.kids{list-style:none;margin:0;padding:0 0 0 20px;position:relative}
+.kids>li{position:relative;padding-top:10px}
+.kids::before{content:"";position:absolute;left:8px;top:0;bottom:22px;width:1px;background:var(--line-strong)}
+.kids>li::before{content:"";position:absolute;left:-12px;top:30px;width:12px;height:1px;background:var(--line-strong)}
+.kids .kids{padding-left:18px}
+.nd{display:block;width:100%;text-align:left;appearance:none;font:inherit;color:inherit;background:var(--l2);border:1px solid var(--bone-300);border-radius:2px;padding:10px 12px;cursor:pointer;transition:border-color .24s var(--ease-standard),background .24s var(--ease-standard)}
+.nd:hover{background:var(--l3)}
+.nd .tt{display:block;font-weight:500;font-size:var(--fs-small);line-height:1.3}
+.nd .uu{display:block;font-family:var(--font-mono);font-size:var(--fs-micro);color:var(--bone-300);margin-top:2px;overflow-wrap:anywhere}
+.nd .bg{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.nd.add{border-style:dashed;border-color:var(--info)}
+.nd.util{background:var(--l0);border-color:var(--line-strong)}
+.nd.sel{border-color:var(--cyan-400);background:var(--cyan-wash);box-shadow:0 0 0 1px var(--cyan-400)}
+.nd.lv1 .tt{font-family:var(--font-display);font-weight:700;letter-spacing:-.03em;font-size:1.1rem}
+@media(max-width:820px){
+  .root{min-width:0;align-items:stretch}.root>.nd{width:100%}.stem{display:none}
+  .cols{grid-template-columns:minmax(0,1fr);border-top:0;gap:24px;margin-top:16px}.col{padding-top:0}.col::before{display:none}
+}
+.panel{background:var(--l2);border:1px solid var(--line);border-radius:2px;padding:20px;min-width:0}
+.detail{position:sticky;top:68px}
+@media(max-width:1180px){.detail{position:static}}
+.detail h3{font-family:var(--font-display);font-weight:700;letter-spacing:-.03em;font-size:1.5rem;line-height:1.1}
+.detail dl{margin:16px 0 0;display:grid;gap:12px}
+.detail dt{font-family:var(--font-mono);font-size:var(--fs-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--bone-500)}
+.detail dd{margin:2px 0 0;font-size:var(--fs-small);color:var(--bone-100)}
+
+/* journeys */
+.paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:900px){.paths{grid-template-columns:minmax(0,1fr)}}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:14px 0 10px}
+.chain span{font-family:var(--font-mono);font-size:var(--fs-mono);border:1px solid var(--line-strong);padding:.25rem .55rem;border-radius:2px}
+.chain span.go{background:var(--signal-400);border-color:var(--signal-400);color:var(--on-signal);font-weight:500}
+.chain i{font-style:normal;color:var(--bone-500)}
+.code{background:var(--l0);border:1px solid var(--line);border-radius:2px;padding:16px;font-family:var(--font-mono);font-size:var(--fs-mono);color:var(--bone-300);overflow:auto;line-height:1.7;white-space:pre}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+@media(max-width:900px){.two{grid-template-columns:minmax(0,1fr)}}
+.toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);background:var(--l3);border:1px solid var(--line-strong);padding:.7rem 1rem;border-radius:2px;font-family:var(--font-mono);font-size:var(--fs-mono);opacity:0;pointer-events:none;transition:opacity .24s var(--ease-standard),transform .24s var(--ease-ink);z-index:80;max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+footer{padding-block:40px;border-top:1px solid var(--line);color:var(--bone-500);font-family:var(--font-mono);font-size:var(--fs-micro);letter-spacing:.08em;text-transform:uppercase}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#summary">Ostra<small>Sitemap · Rev A</small></a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#summary">Summary</a><a href="#map">Map</a><a href="#nav">Navigation</a><a href="#journeys">Journeys</a><a href="#seo">URLs and SEO</a><a href="#cms">CMS</a><a href="#test">Validation</a><a href="#open">Open items</a>
+  </nav>
+</div></header>
+
+<main>
+<section class="sheet" id="summary"><div class="wrap">
+  <p class="eyebrow">Ostra Studio · Website brief v1.0 · Deliverable 1</p>
+  <h1 class="t">One shallow, quiet structure.</h1>
+  <p class="lede">Four top-level pages, three levels at most, and every page tied to an audience action. Items beyond the brief are marked as recommended additions.</p>
+  <div class="stats" id="stats"></div>
+
+  <div class="block">
+    <h3 class="sub">How the structure balances goals, users and build</h3>
+    <div class="rows">
+      <div><b>Business goal</b><p class="muted">Lead generation. The site exists to move qualified people to a consultation or a credentials request. Success metrics from the brief: inquiry conversion rate, share of inquiries matching target budget and project type, Lighthouse 90+ on mobile, organic growth over six months.</p></div>
+      <div><b>Audiences and tasks</b><p class="muted">Residential clients want proof of delivery and a consultation. Developers and institutions want scale, process and credentials. Press and talent want assets, awards and jobs. Each has a path of three page loads or fewer.</p></div>
+      <div><b>Shape</b><p class="muted">Home plus Work, Studio, Journal and Contact, with no dropdown menus. Depth stops at three levels. The only third-level pages are case studies, open roles and category listings that hang off an index.</p></div>
+      <div><b>Scalability</b><p class="muted">Projects, articles and roles are repeating templates fed by the CMS, so growth adds URLs without changing the structure. A new line of work needs only a new type value.</p></div>
+      <div><b>Technical</b><p class="muted">Clean lowercase URLs, one canonical per page, XML sitemap generated from the CMS. Launch size is far below the 50,000 URL and 50 MB limits for a single sitemap file.</p></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3 class="sub">Decisions worth challenging</h3>
+    <div class="rows">
+      <div><b>No dropdown menus</b><p class="muted">Studio sub-pages are reached from an in-page index and the footer. This keeps the header to four items and one call to action, in line with the brief's restraint.</p></div>
+      <div><b>Category pages use a reserved path</b><p class="muted">Types live at /work/category/[type] and tags at /journal/category/[tag], so they can never collide with a project or article slug.</p></div>
+      <div><b>"In Progress" is a status, not a page</b><p class="muted">The brief lists it as a filter beside four project types. It stays a filter on /work and canonicalises to /work, because a thin, changing page is poor search value.</p></div>
+      <div><b>Case study sections are anchors</b><p class="muted">Imagery, plans, materials, metrics, narrative and credits sit on one URL. Splitting them would multiply thin pages and break the monograph reading flow.</p></div>
+      <div><b>A credentials page is added</b><p class="muted">The brief gives developers a "request credentials" action but no page for it. A short form at /contact/credentials gives that path a clear destination and its own conversion tag.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sheet" id="map"><div class="wrap">
+  <p class="eyebrow">Sheet 1 · Visual sitemap</p>
+  <h2 class="t">Select any page.</h2>
+  <p class="lede">The detail panel shows what each page is for, how it is indexed and where its content comes from.</p>
+  <div class="toolbar" style="margin-top:28px">
+    <label class="check"><input type="checkbox" id="tgAdded" checked> Recommended additions</label>
+    <label class="check"><input type="checkbox" id="tgUtil" checked> Utility pages</label>
+    <div class="legend"><span><i></i>From the brief</span><span><i class="add"></i>Recommended addition</span><span><i class="util"></i>Utility</span></div>
+  </div>
+  <div class="map">
+    <div class="tree" id="tree" role="region" aria-label="Sitemap tree" tabindex="0"></div>
+    <aside class="panel detail" id="detail" aria-live="polite"></aside>
+  </div>
+</div></section>
+
+<section class="sheet" id="nav"><div class="wrap">
+  <p class="eyebrow">Sheet 2 · Navigation model</p>
+  <h2 class="t">Four items and one button.</h2>
+  <div class="two" style="margin-top:36px">
+    <div>
+      <h3 class="sub">Header and mobile</h3>
+      <div class="rows">
+        <div><b>Primary</b><p class="muted">Work, Studio, Journal, Contact. The wordmark returns home.</p></div>
+        <div><b>Call to action</b><p class="muted">"Book a consultation" sits at the right of the header on every page and links to /contact. It is the only orange element in the header.</p></div>
+        <div><b>Mobile</b><p class="muted">Full-screen menu with the same four items and the call to action, opened from one control. No nested accordions.</p></div>
+        <div><b>Within Studio</b><p class="muted">An in-page index at the top of /studio and its sub-pages lists Approach, Sustainability, Press and Careers.</p></div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">Footer and wayfinding</h3>
+      <div class="rows">
+        <div><b>Footer, column 1</b><p class="muted">Work by type: Residential, Commercial, Civic, Landscape.</p></div>
+        <div><b>Footer, column 2</b><p class="muted">Studio, Approach, Sustainability, Press, Careers.</p></div>
+        <div><b>Footer, column 3</b><p class="muted">Journal, Contact, Request credentials, office address, social links.</p></div>
+        <div><b>Footer, base</b><p class="muted">Privacy, Cookies, Accessibility. Cookie consent appears where required.</p></div>
+        <div><b>On every inner page</b><p class="muted">Breadcrumbs, and on case studies a next and previous project control.</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sheet" id="journeys"><div class="wrap">
+  <p class="eyebrow">Sheet 3 · Audience paths</p>
+  <h2 class="t">Three page loads or fewer.</h2>
+  <p class="lede">Counts are page loads from the home page. A filter chip on /work changes the grid in place and is not counted.</p>
+  <div class="paths" style="margin-top:36px">
+    <div class="panel"><span class="label">High-end residential client</span>
+      <div class="chain"><span>Home</span><i>→</i><span>Case study</span><i>→</i><span class="go">Book a consultation</span></div>
+      <p class="muted t-small">2 page loads from a flagship tile. 3 through Work. The header call to action is one click from anywhere.</p></div>
+    <div class="panel"><span class="label">Commercial developer or institution</span>
+      <div class="chain"><span>Home</span><i>→</i><span>Work</span><i>→</i><span>Case study</span><i>→</i><span class="go">Request credentials</span></div>
+      <p class="muted">3 page loads. The Commercial chip on /work filters in place. Commercial case studies carry a credentials link in the footer block.</p></div>
+    <div class="panel"><span class="label">Press and industry</span>
+      <div class="chain"><span>Home</span><i>→</i><span>Studio</span><i>→</i><span>Awards and press</span><i>→</i><span class="go">Download press kit</span></div>
+      <p class="muted">2 page loads, then a download. The footer links straight to Press from any page.</p></div>
+    <div class="panel"><span class="label">Talent</span>
+      <div class="chain"><span>Home</span><i>→</i><span>Studio</span><i>→</i><span>Careers</span><i>→</i><span class="go">Open role</span></div>
+      <p class="muted">3 page loads. The footer links straight to Careers from any page.</p></div>
+  </div>
+</div></section>
+
+<section class="sheet" id="seo"><div class="wrap">
+  <p class="eyebrow">Sheet 4 · URL, indexing and schema rules</p>
+  <h2 class="t">One canonical for every page.</h2>
+  <div class="toolbar" style="margin-top:28px"><button class="btn" id="copyUrls" type="button">Copy URL list</button><button class="btn" id="copyCsv" type="button">Copy inventory as CSV</button></div>
+  <div class="tbl" role="region" aria-label="Page inventory" tabindex="0"><table id="inv"></table></div>
+  <div class="block two">
+    <div>
+      <h3 class="sub">Rules</h3>
+      <div class="rows">
+        <div><b>URL format</b><p class="muted">Lowercase, hyphenated, no dates, no file extensions. Slugs are set once and redirected if they ever change.</p></div>
+        <div><b>Canonical and parameters</b><p class="muted">Filter and sort parameters on /work and /journal canonicalise to the clean index URL.</p></div>
+        <div><b>Noindex</b><p class="muted">Thank-you pages, closed roles and any category page holding fewer than three items.</p></div>
+        <div><b>Redirects</b><p class="muted">Old URLs map one to one with 301s at launch. Trailing slashes are normalised.</p></div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">XML sitemap and robots</h3>
+<div class="code">/sitemap.xml    generated from Sanity at build
+  - indexable URLs only (noindex pages excluded)
+  - lastmod from the document's updated date
+  - image entries for project imagery
+/robots.txt     allows all, points to /sitemap.xml
+                disallows /contact/thank-you
+Submit in Google Search Console and Bing Webmaster Tools.
+Split into an index file only if a file nears
+50,000 URLs or 50 MB (not a launch concern).</div>
+      <p class="note">Page titles follow "[Page] | Ostra Studio". The home title and LocalBusiness markup need the studio's city, which is an open item.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="sheet" id="cms"><div class="wrap">
+  <p class="eyebrow">Sheet 5 · Content model</p>
+  <h2 class="t">Structure the content once.</h2>
+  <p class="lede">Each repeating page is a Sanity document type, so editors add a project or article without a developer.</p>
+  <div class="tbl" style="margin-top:36px" role="region" aria-label="CMS map" tabindex="0"><table id="cmsT"></table></div>
+</div></section>
+
+<section class="sheet" id="test"><div class="wrap">
+  <p class="eyebrow">Sheet 6 · Validation plan</p>
+  <h2 class="t">Test the tree before code.</h2>
+  <p class="lede">This structure has not been tested with users. Run a tree test on the sitemap alone, then a short card sort for Journal categories.</p>
+  <div class="two" style="margin-top:36px">
+    <div>
+      <h3 class="sub">Tree-test tasks</h3>
+      <div class="rows" id="tasks"></div>
+    </div>
+    <div>
+      <h3 class="sub">Method and pass marks</h3>
+      <div class="rows">
+        <div><b>Participants</b><p class="muted">About 15 per audience: people who commission houses, developer or institutional clients, and architecture or design professionals.</p></div>
+        <div><b>Pass mark</b><p class="muted">At least 80 percent of participants reach the right page without backtracking on each task. Below 60 percent, restructure that branch.</p></div>
+        <div><b>Card sort</b><p class="muted">Open sort of 20 sample articles to confirm the three Journal categories, or find better ones.</p></div>
+        <div><b>Stakeholders</b><p class="muted">Review with the partners, business development, project managers for case-study data, HR for Careers, and whoever handles press.</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sheet" id="open"><div class="wrap">
+  <p class="eyebrow">Sheet 7 · Assumptions and open items</p>
+  <h2 class="t">What we still need.</h2>
+  <div class="two" style="margin-top:36px">
+    <div>
+      <h3 class="sub">Assumed in this version</h3>
+      <div class="rows">
+        <div><b>Launch volume</b><p class="muted">Eight case studies, six journal articles and two open roles. These drive the page counts above and are placeholders.</p></div>
+        <div><b>Specialty</b><p class="muted">Modern residential is the core, with commercial and landscape as growth lines, as the brief assumes.</p></div>
+        <div><b>Language</b><p class="muted">English only, so no language-prefixed URLs.</p></div>
+        <div><b>Partner bios</b><p class="muted">Kept as sections on /studio. Individual pages come later if the team grows.</p></div>
+      </div>
+    </div>
+    <div>
+      <h3 class="sub">Questions for the client</h3>
+      <div class="rows">
+        <div><b>Studio location</b><p class="muted">Needed for local search, LocalBusiness markup, the map and page titles.</p></div>
+        <div><b>Project counts by type</b><p class="muted">Decides which category pages launch indexable.</p></div>
+        <div><b>Budget bands</b><p class="muted">Needed for the consultation form and the fit rules.</p></div>
+        <div><b>Existing site and brand assets</b><p class="muted">Any current URLs need redirects. Logo and typefaces decide whether a brand refresh is in scope.</p></div>
+        <div><b>Content ownership and deadline</b><p class="muted">Who writes narratives, bios and articles, and when launch is due.</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">LeadMarkHQ · Ostra Studio · Sitemap Rev A · Draft for client review</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+/* src: brief | added | util */
+var N=[
+ {id:"home",p:null,t:"Home",u:"/",n:1,tpl:"Home",src:"brief",idx:1,schema:"WebSite, LocalBusiness",cms:"homePage (singleton) + featured projects",aud:"All audiences",act:"Book a consultation",d:"Hero image or reel, one-paragraph design philosophy, a grid of four to six flagship projects, client testimonials and a consultation call to action."},
+ {id:"work",p:"home",t:"Work",u:"/work",n:1,tpl:"Work index",src:"brief",idx:1,schema:"CollectionPage, BreadcrumbList",cms:"project list",aud:"Residential clients, developers",act:"Open a case study",d:"Filterable grid. Filters: Residential, Commercial, Civic, Landscape and In Progress. Filter state sits in the query string and canonicalises to /work."},
+ {id:"workcat",p:"work",t:"Work by type",u:"/work/category/[type]",n:4,eg:"Residential, Commercial, Civic, Landscape",tpl:"Category listing",src:"added",idx:1,schema:"CollectionPage, BreadcrumbList",cms:"project filtered by type",aud:"Search visitors, residential clients, developers",act:"Open a case study",d:"Indexable landing pages for searches such as modern residential architects in a given city. Publish a type only once it holds three or more projects. In Progress stays a filter on /work."},
+ {id:"proj",p:"work",t:"Case study",u:"/work/[project-slug]",n:8,eg:"launch estimate",tpl:"Case study",src:"brief",idx:1,schema:"CreativeWork, BreadcrumbList, ImageObject",cms:"project",aud:"Residential clients, developers",act:"Book a consultation",d:"Full-bleed imagery, floor plans and sketches, materials list, sustainability metrics, narrative, credits for photographer, engineers and contractors, and next and previous project navigation. Sections are anchors on one page."},
+ {id:"studio",p:"home",t:"Studio",u:"/studio",n:1,tpl:"Studio",src:"brief",idx:1,schema:"Organization, AboutPage",cms:"studioPage (singleton) + person",aud:"Clients, press, talent",act:"Read partner bios",d:"Founding principles and partner bios. Bios stay as sections here until the team justifies a page per person."},
+ {id:"approach",p:"studio",t:"Approach and process",u:"/studio/approach",n:1,tpl:"Content page",src:"brief",idx:1,schema:"WebPage, BreadcrumbList",cms:"processPage (singleton)",aud:"Developers, residential clients",act:"Book a consultation",d:"Design approach and delivery process from brief to handover. This is the evidence of scale and delivery that institutional clients look for."},
+ {id:"sust",p:"studio",t:"Sustainability",u:"/studio/sustainability",n:1,tpl:"Content page",src:"brief",idx:1,schema:"WebPage, BreadcrumbList",cms:"sustainabilityPage (singleton)",aud:"Developers, residential clients",act:"Open a case study",d:"Commitments and measured results, linked to the sustainability metrics shown on each case study."},
+ {id:"press",p:"studio",t:"Awards and press",u:"/studio/press",n:1,tpl:"Listing",src:"brief",idx:1,schema:"CollectionPage, BreadcrumbList",cms:"award, pressItem, pressKit",aud:"Press, industry talent",act:"Download press kit",d:"Awards, press coverage and the downloadable press kit."},
+ {id:"careers",p:"studio",t:"Careers",u:"/studio/careers",n:1,tpl:"Listing",src:"brief",idx:1,schema:"WebPage, BreadcrumbList",cms:"careersPage + role",aud:"Talent",act:"Apply for a role",d:"Studio culture and open roles. Also holds an open application route."},
+ {id:"role",p:"careers",t:"Open role",u:"/studio/careers/[role]",n:2,eg:"launch estimate",tpl:"Job page",src:"added",idx:1,schema:"JobPosting, BreadcrumbList",cms:"role",aud:"Talent",act:"Apply",d:"One page per open role with JobPosting markup. Set to noindex or remove when the role closes."},
+ {id:"journal",p:"home",t:"Journal",u:"/journal",n:1,tpl:"Journal index",src:"brief",idx:1,schema:"CollectionPage, BreadcrumbList",cms:"journalPost list",aud:"Residential clients, press",act:"Read an article",d:"Articles on design thinking, project updates and milestones, with category tags and a clean reading layout."},
+ {id:"post",p:"journal",t:"Article",u:"/journal/[slug]",n:6,eg:"launch estimate",tpl:"Article",src:"brief",idx:1,schema:"Article, BreadcrumbList",cms:"journalPost",aud:"Residential clients, press",act:"Book a consultation",d:"Reading layout with author, date, category tags and related projects at the end."},
+ {id:"jcat",p:"journal",t:"Journal category",u:"/journal/category/[tag]",n:3,eg:"Design thinking, Project updates, Milestones",tpl:"Category listing",src:"added",idx:1,schema:"CollectionPage, BreadcrumbList",cms:"journalPost filtered by tag",aud:"Search visitors",act:"Read an article",d:"Indexable listing per tag. Hold back any tag with fewer than three articles."},
+ {id:"contact",p:"home",t:"Contact",u:"/contact",n:1,tpl:"Contact",src:"brief",idx:1,schema:"ContactPage, LocalBusiness",cms:"contactPage (singleton)",aud:"Residential clients, developers",act:"Send a consultation inquiry",d:"Consultation form with project type, budget range, location and timeline. Office address, map and social links. Routes to email and CRM with spam protection and analytics."},
+ {id:"creds",p:"contact",t:"Request credentials",u:"/contact/credentials",n:1,tpl:"Short form",src:"added",idx:1,schema:"WebPage, BreadcrumbList",cms:"credentialsPage (singleton)",aud:"Developers and institutions",act:"Request credentials",d:"A short form for commercial and institutional teams who want a capability deck before a consultation. Same routing as the main form with its own source tag."},
+ {id:"thanks",p:"contact",t:"Thank you",u:"/contact/thank-you",n:1,tpl:"Confirmation",src:"util",idx:0,schema:"None",cms:"contactPage (singleton)",aud:"Anyone who just submitted",act:"Read the journal",d:"Confirms the submission and carries the analytics conversion event. Not indexed and disallowed in robots.txt."},
+ {id:"legal",p:"home",t:"Utility",u:"",n:0,tpl:"Group",src:"util",idx:1,schema:"",cms:"",aud:"",act:"",d:"Required and technical pages that sit outside the main navigation and appear in the footer."},
+ {id:"priv",p:"legal",t:"Privacy",u:"/privacy",n:1,tpl:"Legal",src:"util",idx:1,schema:"WebPage",cms:"legalPage",aud:"All audiences",act:"",d:"Privacy policy covering the inquiry form, analytics and CRM."},
+ {id:"cook",p:"legal",t:"Cookies",u:"/cookies",n:1,tpl:"Legal",src:"util",idx:1,schema:"WebPage",cms:"legalPage",aud:"All audiences",act:"",d:"Cookie policy and consent settings, shown where consent is required."},
+ {id:"a11y",p:"legal",t:"Accessibility",u:"/accessibility",n:1,tpl:"Legal",src:"util",idx:1,schema:"WebPage",cms:"legalPage",aud:"All audiences",act:"",d:"Commitment to WCAG AA, known limits and a contact for accessibility feedback."},
+ {id:"nf",p:"legal",t:"404",u:"(not found)",n:0,tpl:"Error",src:"util",idx:0,schema:"None",cms:"errorPage",aud:"Lost visitors",act:"Open Work",d:"Friendly error page that links to Work, Journal and Contact. Returns a true 404 status."}
+];
+var byId={};N.forEach(function(n){byId[n.id]=n});
+var showAdded=true,showUtil=true,sel="proj";
+function vis(n){
+  if(n.src==="added"&&!showAdded)return false;
+  if(n.src==="util"&&!showUtil)return false;
+  return true
+}
+function kids(id){return N.filter(function(n){return n.p===id})}
+function depthOf(n){var d=0;while(n.p){n=byId[n.p];d++}return d}
+function urlDepth(n){return n.u&&n.u[0]==="/"?n.u.split("/").filter(Boolean).length+0:0}
+
+function btn(n,lv1){
+  var b=document.createElement("button");b.type="button";b.className="nd"+(lv1?" lv1":"")+(n.src==="added"?" add":"")+(n.src==="util"?" util":"")+(n.id===sel?" sel":"");
+  b.dataset.id=n.id;
+  var bg="";
+  if(n.n>1)bg+='<span class="tag">×'+n.n+'</span>';
+  if(n.src==="added")bg+='<span class="tag add">Added</span>';
+  if(!n.idx&&n.u&&n.u!=="(not found)")bg+='<span class="tag no">noindex</span>';
+  b.innerHTML='<span class="tt">'+n.t+'</span>'+(n.u?'<span class="uu">'+n.u+'</span>':'')+(bg?'<span class="bg">'+bg+'</span>':'');
+  b.addEventListener("click",function(){sel=n.id;paintSel();detail(n)});
+  return b
+}
+function list(parent){
+  var ks=kids(parent).filter(vis);if(!ks.length)return null;
+  var ul=document.createElement("ul");ul.className="kids";
+  ks.forEach(function(k){var li=document.createElement("li");li.appendChild(btn(k,false));var sub=list(k.id);if(sub)li.appendChild(sub);ul.appendChild(li)});
+  return ul
+}
+function drawTree(){
+  var t=$("#tree");t.innerHTML="";
+  var root=document.createElement("div");root.className="root";
+  root.appendChild(btn(byId.home,true));
+  var st=document.createElement("div");st.className="stem";root.appendChild(st);
+  var cols=document.createElement("div");cols.className="cols";
+  kids("home").filter(vis).forEach(function(k){
+    var c=document.createElement("div");c.className="col";c.appendChild(btn(k,true));
+    var sub=list(k.id);if(sub)c.appendChild(sub);cols.appendChild(c)
+  });
+  var nc=kids("home").filter(vis).length;cols.style.gridTemplateColumns="repeat("+nc+",minmax(188px,1fr))";
+  root.appendChild(cols);t.appendChild(root);
+  var minw=nc*188+(nc-1)*12+4;$(".root",t).style.minWidth=minw+"px";
+  stats()
+}
+function paintSel(){$$(".nd",$("#tree")).forEach(function(b){b.classList.toggle("sel",b.dataset.id===sel)})}
+function detail(n){
+  var d=$("#detail");
+  var path=[];var c=n;while(c){path.unshift(c.t);c=c.p?byId[c.p]:null}
+  var rows=[["Path",path.join(" › ")],["URL",n.u||"Group, no URL"],["Template",n.tpl],["Source",n.src==="brief"?"In the brief":n.src==="added"?"Recommended addition":"Utility"]];
+  if(n.n>1)rows.push(["Count",n.n+" pages"+(n.eg?" ("+n.eg+")":"")]);
+  if(n.u&&n.u[0]==="/")rows.push(["Indexing",n.idx?"Indexed, self-canonical":"noindex"]);
+  if(n.schema)rows.push(["Schema",n.schema]);
+  if(n.cms)rows.push(["CMS",n.cms]);
+  if(n.aud)rows.push(["Audience",n.aud]);
+  if(n.act)rows.push(["Primary action",n.act]);
+  d.innerHTML='<span class="label">Page detail</span><h3 style="margin-top:6px">'+n.t+'</h3><p class="muted" style="margin-top:10px;font-size:var(--fs-small)">'+n.d+'</p><dl>'+rows.map(function(r){return '<div><dt>'+r[0]+'</dt><dd'+(r[0]==="URL"?' class="mono"':'')+'>'+r[1]+'</dd></div>'}).join("")+'</dl>'
+}
+function stats(){
+  var vs=N.filter(vis);var urls=0,indexable=0;
+  vs.forEach(function(n){if(n.u&&n.u[0]==="/"){urls+=n.n;if(n.idx)indexable+=n.n}});
+  var maxd=0;vs.forEach(function(n){if(n.u&&n.u[0]==="/"){maxd=Math.max(maxd,urlDepth(n))}});
+  $("#stats").innerHTML='<div><b>'+urls+'</b><span class="label">URLs at launch</span></div><div><b>'+indexable+'</b><span class="label">Indexable</span></div><div><b>4</b><span class="label">Header items</span></div><div><b>'+maxd+'</b><span class="label">Levels deep</span></div>'
+}
+$("#tgAdded").addEventListener("change",function(e){showAdded=e.target.checked;drawTree()});
+$("#tgUtil").addEventListener("change",function(e){showUtil=e.target.checked;drawTree()});
+
+/* inventory */
+function inventory(){
+  var t=$("#inv");
+  var h='<thead><tr><th>URL pattern</th><th>Page</th><th>Count</th><th>Template</th><th>Source</th><th>Index</th><th>Schema</th></tr></thead><tbody>';
+  N.filter(function(n){return n.u&&n.u[0]==="/"}).forEach(function(n){
+    h+='<tr><td class="m">'+n.u+'</td><td>'+n.t+'</td><td>'+n.n+'</td><td>'+n.tpl+'</td><td>'+(n.src==="added"?'<span class="tag add">Added</span>':n.src==="util"?'<span class="tag">Utility</span>':'<span class="tag ok">Brief</span>')+'</td><td>'+(n.idx?'<span class="tag ok">Index</span>':'<span class="tag no">noindex</span>')+'</td><td>'+(n.schema||"")+'</td></tr>'
+  });
+  t.innerHTML=h+'</tbody>'
+}
+function cmsTable(){
+  var rows=[
+   ["Home","homePage (singleton)","Hero media, philosophy, featured project references, testimonials"],
+   ["Case study","project","Title, slug, type, status, location, year, hero and gallery with required alt text, plans and sketches, materials, sustainability metrics, narrative, credits, related projects"],
+   ["Work index and categories","Derived from project","Filter by type and status. No separate content"],
+   ["Studio","studioPage, person","Principles, partner name, role, photo, bio"],
+   ["Approach, Sustainability","processPage, sustainabilityPage","Rich text, stages, commitments, linked metrics"],
+   ["Awards and press","award, pressItem, pressKit","Title, publication, date, link, press-kit file"],
+   ["Careers","careersPage, role","Culture copy, role title, summary, status, apply route"],
+   ["Journal","journalPost","Title, slug, author, date, category tags, body, related projects"],
+   ["Contact and credentials","contactPage, credentialsPage","Address, map pin, socials, form copy, budget bands, routing target"],
+   ["Legal and 404","legalPage, errorPage","Rich text"]
+  ];
+  $("#cmsT").innerHTML='<thead><tr><th>Page group</th><th>Sanity document type</th><th>Key fields</th></tr></thead><tbody>'+rows.map(function(r){return '<tr><td>'+r[0]+'</td><td class="m">'+r[1]+'</td><td>'+r[2]+'</td></tr>'}).join("")+'</tbody>'
+}
+function tasks(){
+  var T=[
+   ["Find a completed residential project that shows a floor plan.","/work/[project-slug]"],
+   ["You want a new house designed. Start the process.","/contact"],
+   ["Find out how the studio treats sustainability.","/studio/sustainability"],
+   ["Get the studio's logo and press images.","/studio/press"],
+   ["See whether the studio is hiring architects.","/studio/careers"],
+   ["You run a development company. Ask for the studio's credentials.","/contact/credentials"],
+   ["Read about a recent project milestone.","/journal"],
+   ["Find the studio's office address.","/contact"]
+  ];
+  $("#tasks").innerHTML=T.map(function(t,i){return '<div><b>Task '+(i+1)+'</b><p class="muted">'+t[0]+' <span class="mono" style="color:var(--bone-500)">Correct: '+t[1]+'</span></p></div>'}).join("")
+}
+
+/* copy */
+var toastEl=$("#toast"),tt;
+function toast(m){toastEl.textContent=m;toastEl.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove("on")},1800)}
+function copy(text,label){
+  function fb(){toast("Copy blocked here. Select the table and copy manually")}
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("Copied "+label)},fb)}else fb()}catch(e){fb()}
+}
+$("#copyUrls").addEventListener("click",function(){
+  var out=[];N.forEach(function(n){if(n.u&&n.u[0]==="/")out.push(n.u)});copy(out.join("\n"),out.length+" URL patterns")
+});
+$("#copyCsv").addEventListener("click",function(){
+  var rows=[["url_pattern","page","count","template","source","indexable","schema"]];
+  N.forEach(function(n){if(n.u&&n.u[0]==="/")rows.push([n.u,n.t,n.n,n.tpl,n.src,n.idx?"yes":"no",n.schema])});
+  copy(rows.map(function(r){return r.map(function(c){return '"'+String(c).replace(/"/g,'""')+'"'}).join(",")}).join("\n"),"inventory CSV")
+});
+
+drawTree();detail(byId[sel]);inventory();cmsTable();tasks()
+})();
+</script>
+</body>
+</html>

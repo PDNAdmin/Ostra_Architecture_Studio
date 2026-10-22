@@ -1,0 +1,91 @@
+/* ---------- Home: "Step inside" — the photoreal walkthrough of Court House, scrubbed by scroll ---------- */
+.walkin {
+  position: relative; z-index: 5;
+  margin: calc(var(--inset) * -1 - 1px) var(--inset) var(--inset);
+  border: 1px solid var(--line-strong);
+  background: var(--l1);
+}
+.walkin__pin { position: relative; height: 100vh; height: 100svh; overflow: hidden; background: var(--l1); }
+.walkin__stage { position: absolute; inset: calc(var(--mh) + var(--inset)) 0 0; }
+/* the film opens from a door-sized slot to the full frame (--o: 0 closed, 1 open) */
+.walkin__film {
+  --o: 0;
+  position: absolute; inset: 0; overflow: hidden; background: var(--l0);
+  clip-path: inset(calc((1 - var(--o)) * 14%) calc((1 - var(--o)) * 37%) calc((1 - var(--o)) * 9%) calc((1 - var(--o)) * 37%));
+}
+.walkin__film video, .walkin__film img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.walkin__film img { z-index: 1; }
+.walkin.is-ready .walkin__film img { display: none; }
+/* door frame drawn around the slot while it is still a door */
+.walkin__frame {
+  position: absolute; z-index: 2; pointer-events: none; inset: 14% 37% 9% 37%;
+  border: 2px solid var(--ink-100); opacity: calc(1 - var(--o, 0) * 3);
+}
+.walkin__frame::after { content: ""; position: absolute; left: -24px; right: -24px; bottom: -2px; height: 2px; background: var(--ink-100); }
+
+.walkin__head {
+  position: absolute; z-index: 3; left: var(--pad); top: calc(var(--mh) + var(--inset) + var(--s-6)); width: min(30%, 24rem);
+  display: grid; gap: var(--s-3);
+}
+.walkin__k, .walkin__tag { font: 500 var(--fs-micro)/1.4 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--signal-ink); }
+.walkin__title { font: 700 var(--fs-display-l)/1 var(--font-display); letter-spacing: var(--tr-display); }
+.walkin__lede { color: var(--ink-300); font-size: var(--fs-body-l); }
+.walkin__side {
+  position: absolute; z-index: 3; right: var(--pad); bottom: var(--s-6); width: min(26%, 20rem);
+  display: grid; gap: var(--s-3); color: var(--ink-300); font-size: var(--fs-small);
+}
+.walkin__side b { display: block; font: 500 var(--fs-micro)/1.4 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--ink-100); }
+
+/* callouts: a dot on the feature, a leader, and a bone label */
+.walkin__notes { list-style: none; margin: 0; padding: 0; position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.walkin__note { position: absolute; left: 0; top: 0; opacity: 0; transition: opacity var(--dur-3) var(--ease-standard); }
+.walkin__note.is-on { opacity: 1; }
+.walkin__note i {
+  position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--signal-400); box-shadow: 0 0 0 2px var(--l3), 0 0 0 7px rgba(255, 85, 0, 0.25);
+}
+.walkin__note::before { content: ""; position: absolute; left: 0; top: 0; width: 56px; height: 1.5px; background: var(--l3); transform-origin: 0 0; rotate: -32deg; box-shadow: 0 0 0 0.5px rgba(20, 18, 15, 0.3); }
+.walkin__note span {
+  position: absolute; left: 46px; top: -46px; white-space: nowrap; padding: 0.45rem 0.65rem;
+  background: rgba(255, 253, 248, 0.94); border: 1px solid var(--ink-100); color: var(--ink-100);
+  font: 500 var(--fs-micro)/1.25 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase;
+  translate: 0 6px; transition: translate var(--dur-4) var(--ease-ink);
+}
+.walkin__note.is-on span { translate: 0 0; }
+.walkin__note span b { display: block; color: var(--signal-ink); font-weight: 500; }
+.walkin__note--l::before { left: auto; right: 0; transform-origin: 100% 0; rotate: 32deg; }
+.walkin__note--l span { left: auto; right: 46px; }
+
+/* end: the link to the full story, and the progress rule */
+.walkin__go {
+  position: absolute; z-index: 5; right: var(--pad); bottom: var(--s-6); display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.9rem 1.1rem; background: var(--l3); border: 1px solid var(--ink-100); color: var(--ink-100); text-decoration: none; font-weight: 500;
+  opacity: 0; translate: 0 10px; pointer-events: none; transition: opacity var(--dur-3) var(--ease-standard), translate var(--dur-4) var(--ease-ink);
+}
+.walkin__go svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.walkin.is-end .walkin__go { opacity: 1; translate: 0 0; pointer-events: auto; }
+.walkin__bar { position: absolute; z-index: 5; left: 0; bottom: 0; height: 3px; width: calc(var(--p, 0) * 100%); background: var(--signal-400); }
+.walkin__cap { position: absolute; z-index: 5; left: var(--pad); bottom: var(--s-4); font: 400 var(--fs-micro)/1 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--l3); text-shadow: 0 1px 3px rgba(20, 18, 15, 0.5); opacity: var(--o, 0); }
+
+/* reduced motion: the still, open, with the features as a list */
+.walkin--static .walkin__pin { height: auto; display: grid; gap: var(--s-5); padding: var(--s-8) var(--pad); }
+.walkin--static .walkin__stage, .walkin--static .walkin__head, .walkin--static .walkin__side { position: static; width: auto; }
+.walkin--static .walkin__stage { aspect-ratio: 16 / 9; position: relative; }
+.walkin--static .walkin__film { --o: 1; }
+.walkin--static .walkin__frame, .walkin--static .walkin__notes, .walkin--static .walkin__bar, .walkin--static .walkin__cap { display: none; }
+.walkin--static .walkin__go { position: static; opacity: 1; translate: none; pointer-events: auto; justify-self: start; }
+.walkin__list { display: none; }
+.walkin--static .walkin__list { display: grid; gap: 0.4rem; margin: 0; padding-left: 1.1em; }
+
+@media (max-width: 960px) {
+  .walkin__film { clip-path: inset(calc((1 - var(--o)) * 30%) calc((1 - var(--o)) * 28%) calc((1 - var(--o)) * 6%) calc((1 - var(--o)) * 28%)); }
+  .walkin__frame { inset: 30% 28% 6% 28%; }
+  .walkin__head { width: auto; right: var(--pad); top: calc(var(--mh) + var(--inset) + var(--s-4)); gap: var(--s-2); }
+  .walkin__title { font-size: clamp(2.2rem, 9.6vw, 3rem); }
+  .walkin__lede { font-size: var(--fs-small); }
+  .walkin__side { display: none; }
+  .walkin__note span { font-size: 0.58rem; left: 34px; top: -40px; white-space: normal; width: 9.5rem; }
+  .walkin__note--l span { right: 34px; }
+  .walkin__note::before { width: 42px; }
+  .walkin__go { left: var(--pad); right: var(--pad); justify-content: space-between; bottom: var(--s-5); }
+}

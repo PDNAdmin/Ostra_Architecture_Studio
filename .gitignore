@@ -1,0 +1,18 @@
+# Dependencies: reinstall with `npm install` in site/ and remotion/
+node_modules/
+
+# Screenshot and test scratch folders
+site/lab/
+remotion/lab/
+
+# Remotion build output and caches
+remotion/out/
+remotion/build/
+.remotion/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.log

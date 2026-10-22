@@ -1,0 +1,115 @@
+/* Ostra design system 1.0 tokens, copied from docs/ostra-design-system.html */
+:root {
+  /* Colour: canvas and elevation (warm bone paper, never #FFF as the canvas) */
+  --l0: #E4DDCC;            /* well: inset code, recessed areas */
+  --l1: #EFE9DD;            /* canvas: page background (bone) */
+  --l2: #F7F3EA;            /* card: tables, panels */
+  --l3: #FFFDF8;            /* float: dialogs, menus, glass base */
+  --line: #D3CAB7;          /* hairline borders */
+  --line-strong: #ADA390;   /* control borders */
+
+  /* Colour: text (ink, a warm near-black) */
+  --ink-100: #14120F;      /* primary text */
+  --ink-300: #4A443A;      /* secondary text */
+  --ink-500: #6A6352;      /* tertiary, L1 and L2 only */
+
+  /* Colour: signal (International Safety Orange).
+     Conversion triggers, laser borders, active telemetry, data points only. */
+  --signal-300: #FF7A3D;    /* hover */
+  --signal-400: #FF5500;    /* signal */
+  --signal-500: #E64D00;    /* pressed */
+  --signal-ink: #A33500;    /* orange for text and thin lines on light surfaces (5.7:1 on bone) */
+  --on-signal: #14120F;     /* text on signal */
+  --signal-glow: rgba(255, 85, 0, 0.25);
+
+  /* Colour: telemetry cyan. Tertiary, live and focus states */
+  --cyan-400: #00E5FF;
+  --cyan-500: #00BDD6;
+  --cyan-600: #006E82;      /* cyan for text, focus and lines on light surfaces */
+  --cyan-wash: rgba(0, 110, 130, 0.10);
+
+  /* Colour: feedback (muted; always paired with an icon or label) */
+  --ok: #3C6B3A;
+  --warn: #7A6812;
+  --err: #A63A30;
+  --info: #2F6079;
+
+  /* Semantic aliases */
+  --bg: var(--l1);
+  --surface: var(--l2);
+  --surface-raised: var(--l3);
+  --text: var(--ink-100);
+  --text-muted: var(--ink-300);
+  --text-subtle: var(--ink-500);
+  --border: var(--line);
+  --accent: var(--signal-400);
+  --accent-hover: var(--signal-300);
+  --accent-pressed: var(--signal-500);
+  --on-accent: var(--on-signal);
+  --accent-glow: var(--signal-glow);
+  --telemetry: var(--cyan-600);
+  --focus-ring: 2px solid var(--cyan-600);
+
+  /* Elevation */
+  --shadow-l2: inset 0 1px 0 rgba(255,255,255,.7), 0 8px 24px rgba(20,18,15,.10);
+  --shadow-l3: inset 0 1px 0 rgba(255,255,255,.8), 0 28px 70px rgba(20,18,15,.18);
+
+  /* Glass */
+  --glass-bg: rgba(255,253,248,.55);
+  --glass-blur: 16px;
+  --glass-edge: rgba(20,18,15,.14);
+  --glass-highlight: inset 0 1px 0 rgba(255,255,255,.7);
+
+  /* Linework: one weight for all blueprint strokes */
+  --stroke-1: 1.25px;
+
+  /* Type families */
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif; /* 700, tracking -0.035em */
+  --font-body: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Fluid type scale: 390px to 1440px, linear interpolation */
+  --fs-display-xl: clamp(2.75rem, 0.8000rem + 8.0000vw, 8rem);      /* 44 / 95 / 128 px at 390 / 1024 / 1440 */
+  --fs-display-l:  clamp(2.25rem, 1.0429rem + 4.9524vw, 5.5rem);    /* 36 / 67 / 88 */
+  --fs-h1:         clamp(1.875rem, 1.2714rem + 2.4762vw, 3.5rem);   /* 30 / 46 / 56 */
+  --fs-h2:         clamp(1.5rem, 1.2214rem + 1.1429vw, 2.25rem);    /* 24 / 31 / 36 */
+  --fs-h3:         clamp(1.25rem, 1.1107rem + 0.5714vw, 1.625rem);  /* 20 / 24 / 26 */
+  --fs-body-l:     clamp(1.0625rem, 0.9929rem + 0.2857vw, 1.25rem); /* 17 / 19 / 20 */
+  --fs-body:       clamp(1rem, 0.9768rem + 0.0952vw, 1.0625rem);    /* 16 / 17 / 17 */
+  --fs-small:      clamp(0.875rem, 0.8634rem + 0.0476vw, 0.90625rem);/* 14 / 14 / 14.5 */
+  --fs-mono:       clamp(0.75rem, 0.7268rem + 0.0952vw, 0.8125rem); /* 12 / 13 / 13 */
+  --fs-micro:      clamp(0.6875rem, 0.6759rem + 0.0476vw, 0.71875rem);/* 11 / 11 / 11.5 */
+  --lh-display: 1.08;
+  --lh-head: 1.1;
+  --lh-body: 1.55;
+  --tr-display: -0.035em;
+  --tr-mono: 0.1em;
+
+  /* Space (4px base) */
+  --s-1: 0.25rem; --s-2: 0.5rem; --s-3: 0.75rem; --s-4: 1rem; --s-5: 1.5rem;
+  --s-6: 2rem; --s-7: 3rem; --s-8: 4.5rem; --s-9: 7rem;
+
+  /* Shape: architectural, nearly square */
+  --r-0: 0; --r-1: 2px; --r-2: 6px;
+
+  /* Layout */
+  --max: 1440px;
+  --gutter: clamp(16px, 2.2vw, 32px);
+  --measure: 65ch;
+
+  /* Motion: curves */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);      /* state changes, hovers */
+  --ease-entrance: cubic-bezier(0.05, 0.7, 0.1, 1); /* UI elements arriving */
+  --ease-exit: cubic-bezier(0.3, 0, 0.8, 0.15);     /* elements leaving */
+  --ease-snap: cubic-bezier(0.7, 0, 0.1, 1);        /* presses, toggles, snaps */
+  --ease-ink: cubic-bezier(0.19, 1, 0.22, 1);       /* ink reveals, card entrances, image bloom */
+  --ease-shutter: cubic-bezier(0.77, 0, 0.175, 1);  /* shutter wipes, plan draws, morphs */
+  /* Motion: durations */
+  --dur-1: 120ms; --dur-2: 240ms; --dur-3: 480ms; --dur-4: 880ms; --dur-5: 1200ms;
+  /* Motion: loader (first visit per session) */
+  --loader-min: 1400ms; --loader-max: 2600ms;
+  /* Motion: parallax depth ratios (annotation layers only, never photographs) */
+  --parallax-bg: 0.15; --parallax-mid: 1; --parallax-fg: 1.15;
+
+  color-scheme: light;
+}

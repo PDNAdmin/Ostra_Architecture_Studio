@@ -1,0 +1,99 @@
+/* ---------- Content pages: shared frame, top, prose and closing CTA ---------- */
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.pg > section {
+  position: relative;
+  margin: calc(var(--inset) * -1 - 1px) var(--inset) var(--inset);
+  border: 1px solid var(--line-strong);
+  background: var(--l1);
+}
+.pg > section:first-child { margin-top: calc(var(--inset) + var(--mh) - 1px); }
+.pg-wrap { max-width: var(--max); margin-inline: auto; padding: clamp(64px, 8vw, 120px) var(--pad); }
+
+.crumbs ol { list-style: none; margin: 0 0 var(--s-6); padding: 0; display: flex; flex-wrap: wrap; }
+.crumbs li { font: 400 var(--fs-micro)/1 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--ink-500); }
+.crumbs li + li::before { content: "/"; margin: 0 0.7rem; color: var(--line-strong); }
+.crumbs a { color: var(--ink-300); text-decoration: none; }
+.crumbs [aria-current] { color: var(--ink-100); }
+
+.pg-label {
+  display: flex; align-items: center; gap: 0.75rem;
+  font: 500 var(--fs-micro)/1 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--ink-300);
+}
+.pg-label::before { content: ""; width: 24px; height: 1px; background: currentColor; }
+
+/* ---- top ---- */
+.pg-top__inner {
+  max-width: var(--max); margin-inline: auto; padding: clamp(40px, 6vw, 88px) var(--pad) clamp(40px, 5vw, 72px);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: var(--s-6); align-items: end;
+}
+.pg-top__inner > .crumbs { grid-column: 1 / -1; }
+.pg-title { font: 700 var(--fs-display-l)/1.02 var(--font-display); letter-spacing: var(--tr-display); }
+.pg-title .line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.pg-title .line > span { display: inline-block; }
+.pg-side { display: grid; gap: var(--s-4); }
+.pg-lede { color: var(--ink-300); font-size: var(--fs-body-l); }
+.pg-note { font: 400 var(--fs-micro)/1.5 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--ink-500); }
+
+/* ---- prose (articles and legal pages) ---- */
+.prose { max-width: 40rem; color: var(--ink-100); font-size: var(--fs-body-l); line-height: 1.65; }
+.prose > * + * { margin-top: 1.1em; }
+.prose h2 { font: 700 var(--fs-h3)/1.2 var(--font-display); letter-spacing: -0.02em; margin-top: 2.2em; scroll-margin-top: 110px; }
+.prose h3 { font: 600 var(--fs-body-l)/1.3 var(--font-body); margin-top: 1.6em; }
+.prose ul, .prose ol { padding-left: 1.2em; }
+.prose li + li { margin-top: 0.45em; }
+.prose li::marker { color: var(--signal-ink); }
+.prose a { color: var(--ink-100); text-decoration-color: var(--signal-400); text-underline-offset: 3px; }
+.prose strong { font-weight: 600; }
+.prose .callout {
+  border-left: 3px solid var(--signal-400); padding: var(--s-3) var(--s-4); background: var(--l2);
+  font-size: var(--fs-body); color: var(--ink-300);
+}
+.prose .callout b { display: block; font: 500 var(--fs-micro)/1.4 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--signal-ink); margin-bottom: 0.3rem; }
+
+/* ---- side index with a reading ruler ---- */
+.toc { position: sticky; top: calc(var(--mh) + var(--inset) + var(--s-5)); align-self: start; display: grid; gap: var(--s-3); }
+.toc__label { font: 500 var(--fs-micro)/1 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--ink-500); }
+.toc ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line-strong); position: relative; }
+.toc li a {
+  display: block; padding: 0.45rem 0 0.45rem var(--s-4); font-size: var(--fs-small); color: var(--ink-300); text-decoration: none;
+  transition: color var(--dur-2) var(--ease-standard);
+}
+.toc li a.is-on { color: var(--ink-100); font-weight: 500; }
+.toc__bar { position: absolute; left: -1.5px; top: 0; width: 2px; height: var(--read, 0%); background: var(--signal-400); }
+
+/* ---- closing CTA ---- */
+.pg-cta__inner { max-width: var(--max); margin-inline: auto; padding: clamp(80px, 10vw, 144px) var(--pad); display: grid; gap: var(--s-4); justify-items: start; }
+.pg-cta__title { font: 700 var(--fs-display-l)/1.02 var(--font-display); letter-spacing: var(--tr-display); }
+.pg-cta__inner p { color: var(--ink-300); font-size: var(--fs-body-l); max-width: 44ch; }
+
+.link-row { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--ink-100); font-weight: 500; text-decoration: underline; text-decoration-color: var(--signal-400); text-underline-offset: 4px; }
+.link-row svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.4; transition: transform var(--dur-2) var(--ease-standard); }
+.link-row:hover svg { transform: translateX(4px); }
+
+@media (max-width: 960px) {
+  .pg-top__inner { grid-template-columns: minmax(0, 1fr); }
+  .toc { display: none; }
+}
+@media (max-width: 760px) {
+  .pg-title, .pg-cta__title { font-size: clamp(2.2rem, 9.6vw, 3rem); }
+  .prose { font-size: var(--fs-body); }
+}
+
+/* "more" links: on desktop each one's photo follows the pointer; on touch it sits beside the text */
+.more__list a { position: relative; }
+.more__img { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .more__list { position: relative; }
+  .more__img {
+    display: block; position: absolute; z-index: 3; left: 0; top: 0; width: 300px; height: auto; aspect-ratio: 3 / 2; object-fit: cover;
+    pointer-events: none; border: 1px solid var(--ink-100); box-shadow: 0 18px 40px rgba(20, 18, 15, 0.22);
+    translate: var(--mx, 0) var(--my, 0); rotate: var(--tilt, 0deg);
+    clip-path: inset(50% 50% 50% 50%); transition: clip-path var(--dur-4) var(--ease-ink);
+  }
+  .more__list a:hover .more__img { clip-path: inset(0 0 0 0); }
+}
+@media (hover: none), (max-width: 960px) {
+  .more__list a > svg { grid-row: 2 / span 3; }
+  .more__img { display: block; grid-column: 1 / -1; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line-strong); margin-bottom: var(--s-2); }
+}

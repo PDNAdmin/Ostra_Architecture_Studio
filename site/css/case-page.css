@@ -1,0 +1,17 @@
+/* ---------- Case study pages built from projects.js ---------- */
+.cp-drawing__frame { aspect-ratio: 4 / 3; border: 1px solid var(--line-strong); overflow: hidden;
+  background: radial-gradient(circle, var(--line) 1px, transparent 1.2px) 0 0 / 22px 22px, var(--l1); }
+.cp-drawing__svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.cp-drawing figcaption { bottom: calc(var(--s-6) + var(--s-3)); right: calc(var(--pad) + var(--s-3)); background: rgba(255, 253, 248, 0.86); padding: 0.35rem 0.5rem; }
+
+.cp-ground__fig { margin: 0; padding: clamp(24px, 3vw, 48px) var(--pad); max-width: var(--max); margin-inline: auto; display: grid; gap: var(--s-3); }
+.cp-ground__frame { overflow: hidden; border: 1px solid var(--line-strong); }
+.cp-ground__frame img { display: block; width: 100%; height: auto; transform-origin: 50% 60%; }
+.cp-ground__fig figcaption { display: flex; justify-content: space-between; gap: var(--s-4); font: 400 var(--fs-micro)/1.5 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--ink-500); }
+.cp-ground__fig figcaption span:first-child { color: var(--ink-100); font-weight: 500; }
+@media (max-width: 760px) {
+  .cp-drawing figcaption { position: static; background: none; padding: var(--s-2) 0 0; }
+  .cp-ground__fig figcaption { flex-direction: column; gap: 0.2rem; }
+}
+
+.cp .case-title { font-size: clamp(2.3rem, 4.8vw, 4.4rem); max-width: 20ch; }

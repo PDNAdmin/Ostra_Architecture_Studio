@@ -1,0 +1,82 @@
+/* ---------- What clients say: pick a worry, read a client's answer ---------- */
+.voices {
+  position: relative; z-index: 5;
+  margin: calc(var(--inset) * -1 - 1px) var(--inset) var(--inset);
+  border: 1px solid var(--line-strong);
+  background: var(--l1);
+}
+.voices__inner {
+  max-width: var(--max); margin-inline: auto;
+  padding: clamp(96px, 12vw, 176px) var(--pad);
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--s-6);
+  align-items: start;
+}
+
+/* Left: heading and the three worries */
+.voices__side { grid-column: 1 / span 5; display: grid; gap: var(--s-5); }
+/* one line: the heading scales with the screen so "say" never drops onto its own line */
+.voices__title { font: 700 min(var(--fs-display-l), 4.2vw)/1 var(--font-display); letter-spacing: var(--tr-display); white-space: nowrap; }
+.voices__lede { color: var(--ink-300); font-size: var(--fs-body-l); max-width: 30ch; }
+.voices__tabs { display: grid; margin-top: var(--s-5); border-top: 1px solid var(--line); }
+.voices__tab {
+  appearance: none; background: transparent; border: 0; border-bottom: 1px solid var(--line);
+  padding: var(--s-4) 0 var(--s-4) 1.6rem; position: relative; cursor: pointer; text-align: left;
+  display: grid; gap: 0.35rem;
+  font: 500 var(--fs-h3)/1.2 var(--font-body); letter-spacing: -0.01em; color: var(--ink-500);
+  transition: color var(--dur-2) var(--ease-standard);
+}
+.voices__topic {
+  font: 500 var(--fs-micro)/1 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--ink-500);
+}
+/* the marker: a small signal dot, as on the hero's clock */
+.voices__tab::before {
+  content: ""; position: absolute; left: 0; top: calc(var(--s-4) + 1.55rem);
+  width: 8px; height: 8px; border-radius: 50%; background: var(--signal-400); box-shadow: 0 0 0 1px var(--ink-100);
+  transform: scale(0); transition: transform var(--dur-3) var(--ease-ink);
+}
+.voices__tab:hover { color: var(--ink-300); }
+.voices__tab[aria-selected="true"] { color: var(--ink-100); }
+.voices__tab[aria-selected="true"] .voices__topic { color: var(--signal-ink); }
+.voices__tab[aria-selected="true"]::before { transform: scale(1); }
+.voices__tab:focus-visible { outline: var(--focus-ring); outline-offset: 4px; }
+
+/* Right: the quote */
+.voices__stage {
+  grid-column: 7 / span 6; position: relative;
+  display: grid; padding-top: clamp(24px, 4vw, 56px);
+}
+.voices__mark {
+  position: absolute; top: -0.32em; left: -0.08em;
+  font: 700 clamp(7rem, 12vw, 11rem)/1 var(--font-display); color: var(--line);
+  pointer-events: none; user-select: none;
+}
+.voices__quote { grid-area: 1 / 1; margin: 0; position: relative; }
+.voices__quote[hidden] { display: none; }
+.voices__quote blockquote { margin: 0; }
+.voices__quote p {
+  font: 500 var(--fs-h1)/1.18 var(--font-display); letter-spacing: -0.025em; color: var(--ink-100);
+  text-wrap: pretty; max-width: 22ch;
+}
+.voices__quote p .w { display: inline-block; white-space: pre; }
+/* in the big quote the brackets already say "placeholder"; drop the dashed underline */
+.voices__quote p .ph { border-bottom: 0; }
+.voices__quote figcaption {
+  margin-top: var(--s-6); padding-top: var(--s-4); border-top: 1px solid var(--line); max-width: 30rem;
+  font: 400 var(--fs-micro)/1.5 var(--font-mono); letter-spacing: var(--tr-mono); text-transform: uppercase; color: var(--ink-300);
+}
+
+@media (max-width: 960px) {
+  /* one column: twelve columns of fixed gaps do not fit a small phone */
+  .voices__inner { grid-template-columns: minmax(0, 1fr); }
+  .voices__side, .voices__stage { grid-column: 1 / -1; }
+  .voices__title { font-size: var(--fs-display-l); }
+  .voices__stage { padding-top: var(--s-6); }
+}
+@media (max-width: 760px) {
+  /* the worries become a row of tabs above the quote */
+  .voices__tabs { grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); border-top: 0; border-bottom: 1px solid var(--line); }
+  .voices__tab { font-size: var(--fs-small); padding: var(--s-3) var(--s-2) var(--s-3) 0; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .voices__tab[aria-selected="true"] { border-bottom-color: var(--ink-100); }
+  .voices__tab::before { display: none; }
+  .voices__quote p { font-size: var(--fs-h2); }
+}

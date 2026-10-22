@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contact Ostra Studio</title>
+  <meta name="description" content="Tell us about your project. Book a consultation and get a reply within one working day.">
+  <meta name="theme-color" content="#EFE9DD">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Cpath d=%27M4 22 16 29 28 22 28 10 16 3 4 10Z M4 10 16 17 28 10 M16 17 16 29%27 fill=%27none%27 stroke=%27%2314120F%27 stroke-width=%272%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap">
+  <link rel="stylesheet" href="vendor/lenis.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/work.css">
+  <link rel="stylesheet" href="css/foot.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header class="masthead" data-masthead>
+    <a class="masthead__brand" href="index.html" aria-label="Ostra Studio, home">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M4 22 16 29 28 22 28 10 16 3 4 10Z M4 10 16 17 28 10 M16 17 16 29" />
+        <path class="mark__court" d="M10 13.5 16 17 22 13.5" />
+      </svg>
+      <span>Ostra</span>
+    </a>
+    <nav class="masthead__nav" aria-label="Primary">
+      <ul>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="studio.html">Studio</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="masthead__cta" href="contact.html">
+      <span>Book a consultation</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+    </a>
+    <button class="masthead__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>Menu</button>
+  </header>
+
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden data-menu>
+    <button class="menu__close" type="button" data-menu-close>Close menu</button>
+    <ul>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="studio.html">Studio</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary" href="contact.html">Book a consultation</a>
+  </div>
+
+  <main id="main" class="ct">
+    <section class="ct-top" aria-labelledby="ct-title">
+      <div class="ct-top__inner">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Contact</li></ol></nav>
+        <h1 id="ct-title" class="ct-title" data-ct-title>
+          <span class="line"><span>Tell us what</span></span>
+          <span class="line"><span>you're planning.</span></span>
+        </h1>
+        <div class="ct-top__side">
+          <p class="ct-lede">Not sure where to start? A short call is enough. We'll tell you honestly if we're the right studio.</p>
+          <p class="ct-promise">We reply within one working day.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ct-body" aria-label="Book a consultation">
+      <div class="ct-body__inner">
+        <form class="ct-form" data-form novalidate action="thank-you.html" method="get">
+          <h2 class="ct-step"><span>1</span>About you</h2>
+
+            <div class="field" data-field="name">
+              <label class="field__label" for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required data-brief="client">
+              
+              <p class="field__error" id="name-error" hidden>Please add your name.</p>
+            </div>
+
+            <div class="field" data-field="email">
+              <label class="field__label" for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-help">
+              <p class="field__help" id="email-help">We'll only use this to reply.</p>
+              <p class="field__error" id="email-error" hidden>That email doesn't look right. Check it and try again.</p>
+            </div>
+
+            <div class="field" data-field="phone">
+              <label class="field__label" for="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" aria-describedby="phone-help">
+              <p class="field__help" id="phone-help">Easier to talk? Add a number.</p>
+              
+            </div>
+
+          <h2 class="ct-step"><span>2</span>The project</h2>
+
+            <fieldset class="field field--group" data-field="type" aria-describedby="type-help">
+              <legend class="field__label">What are you planning?</legend>
+              <div class="opts"><label class="opt"><input type="radio" name="type" value="new-build" required><span>A new build</span></label><label class="opt"><input type="radio" name="type" value="remodel" required><span>A remodel</span></label><label class="opt"><input type="radio" name="type" value="extension" required><span>An extension</span></label><label class="opt"><input type="radio" name="type" value="other" required><span>Something else</span></label></div>
+              <p class="field__help" id="type-help">Pick the closest match.</p>
+              <p class="field__error" id="type-error" hidden>Please choose a project type.</p>
+            </fieldset>
+
+            <div class="field" data-field="location">
+              <label class="field__label" for="location">Where is the site?</label>
+              <input id="location" name="location" type="text" autocomplete="address-level2" required data-brief="site" aria-describedby="location-help">
+              <p class="field__help" id="location-help">Town or postcode is enough.</p>
+              <p class="field__error" id="location-error" hidden>Please tell us where the site is.</p>
+            </div>
+
+            <fieldset class="field field--group" data-field="budget" aria-describedby="budget-help">
+              <legend class="field__label">Rough budget</legend>
+              <div class="opts"><label class="opt"><input type="radio" name="budget" value="u250" required><span>Under £250k</span></label><label class="opt"><input type="radio" name="budget" value="250-500" required><span>£250k–£500k</span></label><label class="opt"><input type="radio" name="budget" value="500-1m" required><span>£500k–£1m</span></label><label class="opt"><input type="radio" name="budget" value="o1m" required><span>Over £1m</span></label><label class="opt"><input type="radio" name="budget" value="unsure" required><span>Not sure yet</span></label></div>
+              <p class="field__help" id="budget-help">A range helps us give a straight answer.</p>
+              <p class="field__error" id="budget-error" hidden>Please choose a range.</p>
+            </fieldset>
+
+            <fieldset class="field field--group" data-field="timing" aria-describedby="timing-help">
+              <legend class="field__label">When do you hope to start?</legend>
+              <div class="opts"><label class="opt"><input type="radio" name="timing" value="6m" required><span>Within 6 months</span></label><label class="opt"><input type="radio" name="timing" value="12m" required><span>6 to 12 months</span></label><label class="opt"><input type="radio" name="timing" value="later" required><span>In over a year</span></label><label class="opt"><input type="radio" name="timing" value="exploring" required><span>Just exploring</span></label></div>
+              
+              
+            </fieldset>
+
+            <div class="field" data-field="message">
+              <label class="field__label" for="message">Tell us about it</label>
+              <textarea id="message" name="message" rows="5" aria-describedby="message-help"></textarea>
+              <p class="field__help" id="message-help">A few lines on the site, the brief and what matters most.</p>
+              
+            </div>
+
+          <div class="ct-send">
+            <button class="btn btn-primary ct-submit" type="submit" data-submit>
+              <span data-submit-label>Send my inquiry</span>
+              <i class="ct-submit__line" aria-hidden="true"></i>
+            </button>
+            <p class="ct-status" role="status" aria-live="polite" data-status></p>
+            <p class="ct-fit">We take on new homes, remodels and extensions, mostly between £250k and £1m. If yours is different, we'll point you to someone who can help.</p>
+          </div>
+        </form>
+
+        <!-- The brief, drawn up as you type: a title block and a drawing of the kind of house. -->
+        <aside class="brief" aria-label="Your brief so far" data-brief-sheet>
+          <div class="brief__sheet">
+            <div class="brief__head">
+              <span>Your brief</span><span>Sheet 00 · Draft</span>
+            </div>
+            <div class="brief__drawing">
+              <svg data-brief-drawing role="img" aria-label="A drawing of the kind of project you have chosen."></svg>
+              <p class="brief__empty" data-brief-empty>Choose a project type and we'll start the drawing.</p>
+            </div>
+            <dl class="brief__block">
+              <div><dt>Client</dt><dd data-out="client">—</dd></div>
+              <div><dt>Project</dt><dd data-out="type">—</dd></div>
+              <div><dt>Site</dt><dd data-out="site">—</dd></div>
+              <div><dt>Budget</dt><dd data-out="budget">—</dd></div>
+              <div><dt>Start</dt><dd data-out="timing">—</dd></div>
+              <div><dt>Status</dt><dd data-out="status">Drafting</dd></div>
+            </dl>
+          </div>
+          <p class="brief__note">This is what we'll have on the table when we call you.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ct-direct" aria-labelledby="ct-direct-title">
+      <div class="ct-direct__inner">
+        <h2 id="ct-direct-title" class="ct-direct__title">Rather talk now?</h2>
+        <dl class="ct-direct__list">
+          <div><dt>Studio</dt><dd>The Old Tannery<br>14 Westgate Street<br>Lewes, East Sussex<br>BN7 1YR</dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+441632960418">01632 960 418</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:hello@ostrastudio.co.uk">hello@ostrastudio.co.uk</a></dd></div>
+          <div><dt>Hours</dt><dd>Monday to Friday, 9am to 5.30pm</dd></div>
+        </dl>
+        <p class="ct-direct__alt">Tendering, lending or planning? <a href="credentials.html">Request our credentials</a>.</p>
+        <figure class="ct-studio">
+          <img src="assets/photos/studio-interior.jpg" srcset="assets/photos/studio-interior-800.jpg 800w, assets/photos/studio-interior.jpg 1536w" sizes="(max-width: 760px) 92vw, 90vw" width="1536" height="1024" alt="The Ostra studio: a long oak worktable with card models and drawings under tall steel windows." loading="lazy" decoding="async">
+          <figcaption>The studio · Where your first meeting happens · Visualisation, illustrative</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: the site's title block. The wordmark is drawn last, outline then hatching,
+       and finishes as the page reaches its end. -->
+  <footer class="foot" data-foot>
+    <div class="foot__inner">
+      <div class="foot__prompt">
+        <p class="foot__line">Modern homes, drawn before they're built.</p>
+        <div class="foot__ask">
+          <p>Planning a home?</p>
+          <a class="btn btn-primary" href="contact.html">Book a consultation</a>
+        </div>
+      </div>
+
+      <nav class="foot__block" aria-label="Footer">
+        <div class="foot__cell">
+          <h2 class="foot__head">Work</h2>
+          <ul>
+            <li><a href="work-new-builds.html">New builds</a></li>
+            <li><a href="work.html?show=remodel">Remodels</a></li>
+            <li><a href="work.html?show=extension">Extensions</a></li>
+          </ul>
+        </div>
+        <div class="foot__cell">
+          <h2 class="foot__head">Studio</h2>
+          <ul>
+            <li><a href="studio.html">About</a></li>
+            <li><a href="studio.html#approach">Approach</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+        <div class="foot__cell">
+          <h2 class="foot__head">Read and ask</h2>
+          <ul>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="credentials.html">Request credentials</a></li>
+          </ul>
+        </div>
+        <div class="foot__cell">
+          <h2 class="foot__head">Office</h2>
+          <address>
+            The Old Tannery, 14 Westgate Street<br>Lewes, East Sussex BN7 1YR<br>
+            <a href="mailto:hello@ostrastudio.co.uk">hello@ostrastudio.co.uk</a><br>
+            <a href="tel:+441632960418">01632 960 418</a>
+          </address>
+          <ul class="foot__social">
+            <li><a href="https://www.instagram.com/ostra.studio" rel="noopener">Instagram @ostra.studio</a></li>
+            <li><a href="https://www.linkedin.com/company/ostra-studio" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="foot__mark" aria-hidden="true">
+        <svg class="wordmark" data-wordmark viewBox="0 0 1000 268" preserveAspectRatio="xMidYMax meet"></svg>
+      </div>
+
+      <div class="foot__base">
+        <p>© 2026 Ostra Studio Ltd</p>
+        <ul class="foot__legal">
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="accessibility.html">Accessibility</a></li>
+        </ul>
+        <p>Registered in England and Wales no. 09312847</p>
+        <a class="foot__top" href="#main" data-to-top>Back to top <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" /></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie choices (copy deck wording). Remembered in this browser only. -->
+  <div class="cookies" role="region" aria-label="Cookie choices" data-cookies hidden>
+    <p class="cookies__text">We use cookies to see which pages help and which don't. You choose.</p>
+    <div class="cookies__manage" data-cookies-manage hidden>
+      <label class="cookies__opt"><input type="checkbox" checked disabled> Essential <span>Always on. The site needs these to work.</span></label>
+      <label class="cookies__opt"><input type="checkbox" data-cookies-analytics> Analytics <span>Tells us which pages help.</span></label>
+    </div>
+    <div class="cookies__actions">
+      <button class="btn btn-primary" type="button" data-cookies-accept>Accept all</button>
+      <button class="btn" type="button" data-cookies-essential>Essential only</button>
+      <button class="cookies__link" type="button" data-cookies-toggle aria-expanded="false">Manage</button>
+    </div>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script type="module" src="js/contact.js"></script>
+  <script type="module" src="js/foot.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Court House | Ostra Studio</title>
+  <meta name="description" content="A family house turned toward its court: lime render, oak, clay tile and a planted court. Walk through it, then read how it was designed and built.">
+  <meta name="theme-color" content="#EFE9DD">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Cpath d=%27M4 22 16 29 28 22 28 10 16 3 4 10Z M4 10 16 17 28 10 M16 17 16 29%27 fill=%27none%27 stroke=%27%2314120F%27 stroke-width=%272%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap">
+  <link rel="stylesheet" href="vendor/lenis.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/close.css">
+  <link rel="stylesheet" href="css/foot.css">
+  <link rel="stylesheet" href="css/case.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header class="masthead" data-masthead>
+    <a class="masthead__brand" href="index.html" aria-label="Ostra Studio, home">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M4 22 16 29 28 22 28 10 16 3 4 10Z M4 10 16 17 28 10 M16 17 16 29" />
+        <path class="mark__court" d="M10 13.5 16 17 22 13.5" />
+      </svg>
+      <span>Ostra</span>
+    </a>
+    <nav class="masthead__nav" aria-label="Primary">
+      <ul>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="studio.html">Studio</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="masthead__cta" href="contact.html">
+      <span>Book a consultation</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+    </a>
+    <button class="masthead__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>Menu</button>
+  </header>
+
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden data-menu>
+    <button class="menu__close" type="button" data-menu-close>Close menu</button>
+    <ul>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="studio.html">Studio</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary" href="contact.html">Book a consultation</a>
+  </div>
+
+  <main id="main" class="case">
+
+    <!-- Title: drawing first. The ink axonometric is the project as drawn. -->
+    <section class="case-top" aria-labelledby="case-title">
+      <div class="case-top__inner">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="work-new-builds.html">New builds</a></li>
+            <li aria-current="page">Court House</li>
+          </ol>
+        </nav>
+        <h1 id="case-title" class="case-title" data-case-title>
+          <span class="line"><span>Court House:</span></span>
+          <span class="line"><span>a family house</span></span>
+          <span class="line"><span>turned toward its court.</span></span>
+        </h1>
+        <dl class="facts" data-facts>
+          <div><dt>Location</dt><dd>Lewes, East Sussex</dd></div>
+          <div><dt>Type</dt><dd>New build</dd></div>
+          <div><dt>Size</dt><dd>212 m²</dd></div>
+          <div><dt>Year</dt><dd>2025</dd></div>
+          <div><dt>Budget</dt><dd>£780,000 to £850,000</dd></div>
+          <div><dt>Role</dt><dd>Design and delivery</dd></div>
+        </dl>
+      </div>
+      <figure class="case-drawing" data-case-drawing>
+        <div class="case-drawing__frame"><picture><source media="(max-width: 760px)" srcset="assets/ink-mobile-poster.jpg" width="1080" height="1200"><img src="assets/ink-desktop-poster.jpg" alt="Axonometric drawing of the courtyard house: a two-storey wing and a single-storey wing around a planted court, with a low garden wall and an entrance gap." width="1600" height="1000"></picture>
+          <img class="case-drawing__render" data-case-render src="assets/work/court-house.jpg" srcset="assets/work/court-house-800.jpg 800w, assets/work/court-house.jpg 1448w" sizes="92vw" width="1448" height="1086" alt="Court House from above: a cream two-wing house around a paved court, with a copper-coloured roof over the main wing, set in a planted garden." decoding="async">
+        </div>
+        <figcaption data-case-cap>Drawn, then built: axonometric and render, illustrative</figcaption>
+      </figure>
+    </section>
+
+    <!-- Walk through it: a Remotion 3D film scrubbed by scroll. Labels are live text, in step with the film. -->
+    <section class="walk" aria-labelledby="walk-title" data-walk>
+      <div class="walk__pin" data-walk-pin>
+        <div class="walk__film" aria-hidden="true">
+          <video class="walk__video" data-walk-video muted playsinline preload="auto" tabindex="-1" disablepictureinpicture></video>
+          <img class="walk__still" data-walk-still alt="" decoding="async">
+        </div>
+        <header class="walk__head">
+          <h2 id="walk-title" class="walk__title">Walk through it</h2>
+          <p class="walk__tag">Visualisation, illustrative · Scroll walks you through the house</p>
+        </header>
+        <ol class="walk__caps" data-walk-caps>
+          <li data-from="0" data-to="0.18"><span class="walk__room">From the lane</span>A gravel path between olive trees and lavender leads straight to the door.</li>
+          <li data-from="0.18" data-to="0.32" data-key="1"><span class="walk__room">Outside</span>Thick lime-rendered walls hold the day's warmth into the evening.</li>
+          <li data-from="0.32" data-to="0.46" data-key="2"><span class="walk__room">Front door</span>A solid oak door, set deep in the wall, so you arrive in shade.</li>
+          <li data-from="0.46" data-to="0.6" data-key="3"><span class="walk__room">Hall</span>Lime plaster and a pale polished floor carry the court's light into the hall.</li>
+          <li data-from="0.6" data-to="0.78" data-key="4"><span class="walk__room">Living room</span>Oak shelving along one wall, and the court straight ahead.</li>
+          <li data-from="0.78" data-to="1.01" data-key="5"><span class="walk__room">The court</span>The glass wall slides away, and the living room joins the court and its olive tree.</li>
+        </ol>
+        <div class="walk__ruler" aria-hidden="true">
+          <ol><li>Outside</li><li>Front door</li><li>Living room</li><li>The court</li></ol>
+          <span class="walk__marker" data-walk-marker></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- The finished house: photos slide past while a key plan moves a camera and its view cone to where each was taken. -->
+    <section class="shots" aria-labelledby="shots-title" data-shots>
+      <div class="shots__pin" data-shots-pin>
+        <header class="shots__head">
+          <h2 id="shots-title" class="shots__title">The finished house</h2>
+          <p class="shots__tag">Visualisations, illustrative · The plan marks where each view was taken</p>
+          <figure class="shots__plan" aria-hidden="true"><svg data-shots-plan viewBox="-8 -18 31 25"></svg></figure>
+          <p class="shots__now" aria-hidden="true"><span data-shots-n>01</span><span class="shots__of">/ 05</span><span class="shots__room" data-shots-room>Arrival</span></p>
+        </header>
+        <div class="shots__track" data-shots-track>
+          <figure class="shot" data-shot data-cam="6,-5.2,90,46">
+            <div class="shot__frame"><img src="assets/photos/court-house/01-arrival.jpg" srcset="assets/photos/court-house/01-arrival-800.jpg 800w, assets/photos/court-house/01-arrival.jpg 1536w" sizes="(max-width: 760px) 92vw, 60vw" width="1536" height="1024" alt="The gravel path to the front door, between olive trees and lavender." loading="lazy" decoding="async"></div>
+            <figcaption><span class="shot__n">01</span><span class="shot__room">Arrival</span><span class="shot__cap">The path runs straight from the lane to the door.</span></figcaption>
+          </figure>
+          <figure class="shot" data-shot data-cam="7,11.6,-90,74">
+            <div class="shot__frame"><img src="assets/photos/court-house/02-court.jpg" srcset="assets/photos/court-house/02-court-800.jpg 800w, assets/photos/court-house/02-court.jpg 1536w" sizes="(max-width: 760px) 92vw, 60vw" width="1536" height="1024" alt="The living room opening onto the paved court and its olive tree." loading="lazy" decoding="async"></div>
+            <figcaption><span class="shot__n">02</span><span class="shot__room">The court</span><span class="shot__cap">The glass wall slides away, and the living room joins the court.</span></figcaption>
+          </figure>
+          <figure class="shot" data-shot data-cam="17,2.2,95,64">
+            <div class="shot__frame"><img src="assets/photos/court-house/03-kitchen.jpg" srcset="assets/photos/court-house/03-kitchen-800.jpg 800w, assets/photos/court-house/03-kitchen.jpg 1536w" sizes="(max-width: 760px) 92vw, 60vw" width="1536" height="1024" alt="The oak dining table and kitchen, with the court through the glass." loading="lazy" decoding="async"></div>
+            <figcaption><span class="shot__n">03</span><span class="shot__room">Kitchen</span><span class="shot__cap">An oak kitchen that faces the court, not a wall.</span></figcaption>
+          </figure>
+          <figure class="shot shot--tall" data-shot data-cam="16.6,8.2,180,22">
+            <div class="shot__frame"><img src="assets/photos/court-house/04-detail.jpg" srcset="assets/photos/court-house/04-detail-800.jpg 800w, assets/photos/court-house/04-detail.jpg 1122w" sizes="(max-width: 760px) 92vw, 60vw" width="1122" height="1402" alt="Close-up of lime plaster meeting an oak window frame." loading="lazy" decoding="async"></div>
+            <figcaption><span class="shot__n">04</span><span class="shot__room">Detail</span><span class="shot__cap">Lime plaster meets an oak frame.</span></figcaption>
+          </figure>
+          <figure class="shot" data-shot data-cam="-4.6,-5.6,48,40">
+            <div class="shot__frame"><img src="assets/photos/court-house/05-dusk.jpg" srcset="assets/photos/court-house/05-dusk-800.jpg 800w, assets/photos/court-house/05-dusk.jpg 1536w" sizes="(max-width: 760px) 92vw, 60vw" width="1536" height="1024" alt="The house from above at dusk, every room lit around the court." loading="lazy" decoding="async"></div>
+            <figcaption><span class="shot__n">05</span><span class="shot__room">Dusk</span><span class="shot__cap">After dark, every room lights the court.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- The story, in the copy deck's order: brief, challenge, what we did, result. -->
+    <section class="story" aria-label="Project story">
+      <div class="story__inner">
+        <div class="story__row" data-reveal>
+          <h2 class="story__label">The brief</h2>
+          <p class="story__lead">Hannah and Joel Pryce came to us with a dark 1960s bungalow on a plot with a long view south to the Downs that turned its back on the sun, with a busy lane along the north side.</p>
+        </div>
+        <div class="story__row" data-reveal>
+          <h2 class="story__label">The challenge</h2>
+          <p>The plot sits on the edge of the Lewes conservation area, and planners wanted the new house no taller than the bungalow it replaced. The lane to the north is noisy, and the neighbours to the east look straight down into the garden. A tall, open house was never going to be allowed, or comfortable.</p>
+        </div>
+        <div class="story__row story__row--did" data-reveal>
+          <h2 class="story__label">What we did</h2>
+          <ol class="did">
+            <li><h3>Design</h3><p>We wrapped the house around a court. The two-storey wing shelters the court from the lane, and every room opens onto it, so each one gets the sun at some point in the day. From the street it is quiet and low; from inside, the court is the centre of everything.</p></li>
+            <li><h3>Materials</h3><p>Lime render breathes and softens with age. Handmade Sussex clay tiles match the roofs around it. Oak frames and lime plaster inside keep the rooms warm in colour and easy to repair, so the house feels settled rather than new.</p></li>
+            <li><h3>Build</h3><p>Downland Build started on site in May 2024. We held a site meeting every week and sent the Pryces a short report each Friday, with photos and the cost to date. One change, a larger kitchen roof light, was priced and agreed before it was built.</p></li>
+          </ol>
+        </div>
+        <div class="story__row" data-reveal>
+          <h2 class="story__label">The result</h2>
+          <dl class="result">
+            <div><dt>First sketch to handover</dt><dd>22 months</dd></div>
+            <div><dt>Final cost against budget</dt><dd>1.8% over budget, all of it the agreed roof light</dd></div>
+            <div><dt>Energy or comfort</dt><dd>31 kWh/m² a year for heating, measured over the first full year</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-quote" aria-label="Client quote" data-reveal>
+      <figure>
+        <blockquote><p>Every room gets the sun at some point in the day. We didn’t know a house could feel this calm, or that the build could be this straightforward.</p></blockquote>
+        <figcaption>Hannah Pryce, Court House, 2025</figcaption>
+      </figure>
+    </section>
+
+    <section class="credits" aria-labelledby="credits-title" data-reveal>
+      <div class="credits__inner">
+        <h2 id="credits-title" class="story__label">Credits</h2>
+        <dl class="credits__list">
+          <div><dt>Photography</dt><dd>Holly Marsh</dd></div>
+          <div><dt>Structural engineer</dt><dd>Ferrow Structures</dd></div>
+          <div><dt>Builder</dt><dd>Downland Build</dd></div>
+          <div><dt>Landscape</dt><dd>Field & Fold Gardens</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="next" aria-label="Next project and consultation">
+      <div class="next__inner">
+        <a class="next__link" href="case-long-reach.html" data-reveal>
+          <span class="next__label">Next project</span>
+          <span class="next__name">Long Reach</span>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+        </a>
+        <div class="next__ask" data-reveal>
+          <h2 class="next__title">Have a site like this?</h2>
+          <p>Tell us about it on a short call.</p>
+          <a class="btn btn-primary" href="contact.html" data-magnetic>Book a consultation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: the site's title block. The wordmark is drawn last, outline then hatching,
+       and finishes as the page reaches its end. -->
+  <footer class="foot" data-foot>
+    <div class="foot__inner">
+      <div class="foot__prompt">
+        <p class="foot__line">Modern homes, drawn before they're built.</p>
+        <div class="foot__ask">
+          <p>Planning a home?</p>
+          <a class="btn btn-primary" href="contact.html">Book a consultation</a>
+        </div>
+      </div>
+
+      <nav class="foot__block" aria-label="Footer">
+        <div class="foot__cell">
+          <h2 class="foot__head">Work</h2>
+          <ul>
+            <li><a href="work-new-builds.html">New builds</a></li>
+            <li><a href="work.html?show=remodel">Remodels</a></li>
+            <li><a href="work.html?show=extension">Extensions</a></li>
+          </ul>
+        </div>
+        <div class="foot__cell">
+          <h2 class="foot__head">Studio</h2>
+          <ul>
+            <li><a href="studio.html">About</a></li>
+            <li><a href="studio.html#approach">Approach</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+        <div class="foot__cell">
+          <h2 class="foot__head">Read and ask</h2>
+          <ul>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="credentials.html">Request credentials</a></li>
+          </ul>
+        </div>
+        <div class="foot__cell">
+          <h2 class="foot__head">Office</h2>
+          <address>
+            The Old Tannery, 14 Westgate Street<br>Lewes, East Sussex BN7 1YR<br>
+            <a href="mailto:hello@ostrastudio.co.uk">hello@ostrastudio.co.uk</a><br>
+            <a href="tel:+441632960418">01632 960 418</a>
+          </address>
+          <ul class="foot__social">
+            <li><a href="https://www.instagram.com/ostra.studio" rel="noopener">Instagram @ostra.studio</a></li>
+            <li><a href="https://www.linkedin.com/company/ostra-studio" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="foot__mark" aria-hidden="true">
+        <svg class="wordmark" data-wordmark viewBox="0 0 1000 268" preserveAspectRatio="xMidYMax meet"></svg>
+      </div>
+
+      <div class="foot__base">
+        <p>© 2026 Ostra Studio Ltd</p>
+        <ul class="foot__legal">
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="accessibility.html">Accessibility</a></li>
+        </ul>
+        <p>Registered in England and Wales no. 09312847</p>
+        <a class="foot__top" href="#main" data-to-top>Back to top <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" /></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie choices (copy deck wording). Remembered in this browser only. -->
+  <div class="cookies" role="region" aria-label="Cookie choices" data-cookies hidden>
+    <p class="cookies__text">We use cookies to see which pages help and which don't. You choose.</p>
+    <div class="cookies__manage" data-cookies-manage hidden>
+      <label class="cookies__opt"><input type="checkbox" checked disabled> Essential <span>Always on. The site needs these to work.</span></label>
+      <label class="cookies__opt"><input type="checkbox" data-cookies-analytics> Analytics <span>Tells us which pages help.</span></label>
+    </div>
+    <div class="cookies__actions">
+      <button class="btn btn-primary" type="button" data-cookies-accept>Accept all</button>
+      <button class="btn" type="button" data-cookies-essential>Essential only</button>
+      <button class="cookies__link" type="button" data-cookies-toggle aria-expanded="false">Manage</button>
+    </div>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script type="module" src="js/case.js"></script>
+  <script type="module" src="js/foot.js"></script>
+</body>
+</html>

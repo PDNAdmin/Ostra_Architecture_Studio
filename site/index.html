@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ostra Studio: custom home architects in Lewes</title>
+  <meta name="description" content="Ostra Studio designs custom homes and major remodels in Lewes and across southern England, from first sketch to handover. Book a consultation.">
+  <meta name="theme-color" content="#EFE9DD">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Cpath d=%27M4 22 16 29 28 22 28 10 16 3 4 10Z M4 10 16 17 28 10 M16 17 16 29%27 fill=%27none%27 stroke=%27%2314120F%27 stroke-width=%272%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap">
+  <link rel="stylesheet" href="vendor/lenis.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/work.css">
+  <link rel="stylesheet" href="css/walkin.css">
+  <link rel="stylesheet" href="css/promises.css">
+  <link rel="stylesheet" href="css/voices.css">
+  <link rel="stylesheet" href="css/close.css">
+  <link rel="stylesheet" href="css/foot.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header class="masthead" data-masthead>
+    <a class="masthead__brand" href="index.html" aria-label="Ostra Studio, home">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M4 22 16 29 28 22 28 10 16 3 4 10Z M4 10 16 17 28 10 M16 17 16 29" />
+        <path class="mark__court" d="M10 13.5 16 17 22 13.5" />
+      </svg>
+      <span>Ostra</span>
+    </a>
+    <nav class="masthead__nav" aria-label="Primary">
+      <ul>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="studio.html">Studio</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="masthead__cta" href="contact.html">
+      <span>Book a consultation</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+    </a>
+    <button class="masthead__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>Menu</button>
+  </header>
+
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden data-menu>
+    <button class="menu__close" type="button" data-menu-close>Close menu</button>
+    <ul>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="studio.html">Studio</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary" href="contact.html">Book a consultation</a>
+  </div>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title" data-hero>
+      <div class="sheet" data-sheet>
+
+        <!-- Plane 1, background schematic: dot grid, rulers, north point. Moves 0.15x. -->
+        <div class="plane plane--bg" data-plane="bg" aria-hidden="true">
+          <svg class="grid" width="100%" height="100%">
+            <defs>
+              <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="1" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#dots)" />
+          </svg>
+        </div>
+
+        <!-- Plane 2, the drawing. Moves 1x. Live light (wash) under the Remotion ink.
+             The ink plane multiplies onto everything beneath it, so the clip's white paper disappears. -->
+        <div class="plane plane--stage" data-plane="stage">
+          <div class="drawing" data-box>
+            <svg class="wash" data-wash aria-hidden="true"></svg>
+          </div>
+        </div>
+        <div class="plane plane--ink" data-plane="ink">
+          <div class="drawing" data-box data-ink-box role="img"
+               aria-label="Axonometric drawing of an illustrative courtyard house. As you scroll, the time of day moves from morning to evening and the shadows move with it.">
+            <video class="ink" data-ink muted playsinline preload="auto" aria-hidden="true" tabindex="-1" disablepictureinpicture></video>
+            <img class="ink ink--still" data-ink-still alt="" aria-hidden="true" decoding="async">
+          </div>
+        </div>
+
+        <!-- Plane 3, annotations: sun path, leaders, dimensions. Moves 1.15x. -->
+        <div class="plane plane--fg" data-plane="fg" aria-hidden="true">
+          <div class="drawing" data-box>
+            <svg class="annot" data-annot></svg>
+          </div>
+        </div>
+
+        <!-- Sheet furniture: crop marks and edge rulers -->
+        <div class="rulers" aria-hidden="true">
+          <span class="crop crop--tl"></span><span class="crop crop--tr"></span>
+          <span class="crop crop--bl"></span><span class="crop crop--br"></span>
+        </div>
+
+        <div class="scrim" aria-hidden="true"></div>
+
+        <div class="hero__copy">
+          <h1 id="hero-title" class="hero__title">
+            <span class="line"><span>Modern homes</span></span>
+            <span class="line"><span>shaped around</span></span>
+            <span class="line"><span>your life.</span></span>
+          </h1>
+          <p class="hero__sub">Ostra Studio designs custom houses and major remodels, from first sketch to handover.</p>
+          <div class="hero__actions">
+            <a class="btn btn-primary" href="contact.html" data-magnetic>Book a consultation</a>
+            <a class="link-arrow" href="work.html">See the work
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+            </a>
+          </div>
+          <p class="hero__trust">12 years. 38 homes built. Sussex, Kent and across southern England.</p>
+        </div>
+
+        <!-- Second beat: appears as the scroll turns the day -->
+        <p class="hero__beat" data-beat>
+          <span class="hero__clock" aria-hidden="true"><span data-clock>08:00</span></span>
+          <span class="hero__beat-text">Light lands where you sit.</span>
+        </p>
+
+        <dl class="titleblock" aria-label="Drawing details">
+          <div><dt>Project</dt><dd>Courtyard house</dd></div>
+          <div><dt>Drawing</dt><dd>Axonometric, illustrative</dd></div>
+          <div><dt>Sheet</dt><dd>A-01</dd></div>
+          <div class="titleblock__sun" aria-hidden="true"><dt>Sun</dt><dd><span data-clock>08:00</span> · Alt <span data-alt>00</span>° · Az <span data-az>000</span>°</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="philosophy" aria-labelledby="philosophy-title">
+      <div class="philosophy__inner">
+        <h2 id="philosophy-title" class="philosophy__title" data-phil-title>A house should fit the way you live.</h2>
+
+        <!-- Left: a plan that changes as the copy is read. Held in view while the copy scrolls. -->
+        <div class="philosophy__stage" data-phil-stage>
+          <figure class="plan" data-plan>
+            <svg class="plan__svg" viewBox="6 12 588 446" role="img" data-plan-svg
+                 aria-label="Floor plan of an illustrative house. First a typical plan with rooms along a long hall and a long morning route. Then the same rooms arranged around a planted court, with sunlight reaching the living room chair and a short morning route. Then the final plan, dimensioned and marked ready to build."></svg>
+            <!-- Drawing legend: title row and keyed notes. One set per paragraph; the numbers match the markers on the plan. -->
+            <figcaption class="legend" data-legend>
+              <div class="legend__set legend__set--ink" data-keyset="0">
+                <p class="legend__title"><b>Plan A</b><span>Built for an average family</span><i>1:100</i></p>
+                <ol class="legend__keys">
+                  <li><span class="k">The kitchen faces north. It never sees the sun.</span></li>
+                  <li><span class="k">A bedroom shares a wall with the TV.</span></li>
+                  <li><span class="k">Every morning starts with a <span data-route-before>24.5</span> m walk down a hall.</span></li>
+                </ol>
+              </div>
+              <div class="legend__set legend__set--signal" data-keyset="1">
+                <p class="legend__title"><b>Plan B</b><span>Drawn around how you live</span><i>1:100</i></p>
+                <ol class="legend__keys">
+                  <li><span class="k">The kitchen opens onto a planted court.</span></li>
+                  <li><span class="k">Morning sun reaches the chair you read in.</span></li>
+                  <li><span class="k">A sliding wall opens the living room to the court, or closes it.</span></li>
+                  <li><span class="k">The same morning, now <span data-route-after>10.6</span> m.</span></li>
+                </ol>
+              </div>
+              <div class="legend__set legend__set--cyan" data-keyset="2">
+                <p class="legend__title"><b>Plan B, Rev C</b><span>Tested and ready to build</span><i>1:100</i></p>
+                <ol class="legend__keys">
+                  <li><span class="k">Three drafts, each tested against your week.</span></li>
+                  <li><span class="k">Every wall dimensioned before anything is built.</span></li>
+                  <li><span class="k">Signed off when it fits. Then we build.</span></li>
+                </ol>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Right: before, after, bridge. Each step lights up as it reaches the middle of the screen. -->
+        <div class="philosophy__steps" data-phil-steps>
+          <div class="step" data-step="0">
+            <p class="step__tag">Before</p>
+            <p class="step__text">Most homes are built for an average family that does not exist. Rooms end up too dark, too loud or too far from each other. You feel it every morning.</p>
+          </div>
+          <div class="step" data-step="1">
+            <p class="step__tag">After</p>
+            <p class="step__text">A house drawn around your routines feels different. Light lands where you sit. Rooms open when you want company and close when you don't.</p>
+          </div>
+          <div class="step" data-step="2">
+            <p class="step__tag">How we get there</p>
+            <p class="step__text">We get there by starting with how you live, not with a floor plan. Then we draw, test and refine until the house is ready to build.</p>
+            <a class="link-arrow" href="studio.html#approach">How we work
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="work" aria-labelledby="work-title" data-work>
+      <div class="work__pin" data-work-pin>
+        <header class="work__head">
+          <h2 id="work-title" class="work__title">Recent work</h2>
+          <div class="work__intro">
+            <p>Homes we designed and saw built. Each one started with a conversation like the one you are about to have.</p>
+            <p class="work__key"><span class="work__swatch" aria-hidden="true"></span><span><b>Orange marks each house's key idea:</b> the one design decision the rest of the house follows.</span></p>
+          </div>
+          <a class="link-arrow work__all" href="work.html">See all projects
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+          </a>
+        </header>
+
+        <div class="work__viewport">
+          <ol class="work__track" data-work-track>
+            <li class="sheet-card" data-project="cantilever">
+              <svg class="sheet-card__drawing" data-drawing role="img" aria-label="Illustrative axonometric: a single-storey house with an upper floor that reaches out past it. The upper floor, the key idea, is orange."></svg>
+              <img class="sheet-card__render" src="assets/work/long-reach-800.jpg" srcset="assets/work/long-reach-800.jpg 800w, assets/work/long-reach.jpg 1448w" sizes="(max-width: 860px) 92vw, 44vw" width="1448" height="1086" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--fx:62%;--fy:30%">
+              <div class="sheet-card__block">
+                <p class="sheet-card__meta">New build <span aria-hidden="true">·</span> Frome, Somerset <span aria-hidden="true">·</span> 2024</p>
+                <h3 class="sheet-card__name">Long Reach</h3>
+                <p class="sheet-card__idea"><b>Key idea</b>An upper floor that reaches past the house below, toward the view.</p>
+                <a class="link-arrow" href="work.html">Read the case study<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg></a>
+              </div>
+            </li>
+            <li class="sheet-card" data-project="remodel">
+              <svg class="sheet-card__drawing" data-drawing role="img" aria-label="Illustrative axonometric: an old gabled house with a new low wing beside it. The new wing, the key idea, is orange."></svg>
+              <img class="sheet-card__render" src="assets/work/mill-lane-800.jpg" srcset="assets/work/mill-lane-800.jpg 800w, assets/work/mill-lane.jpg 1448w" sizes="(max-width: 860px) 92vw, 44vw" width="1448" height="1086" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--fx:70%;--fy:26%">
+              <div class="sheet-card__block">
+                <p class="sheet-card__meta">Remodel <span aria-hidden="true">·</span> Stroud, Gloucestershire <span aria-hidden="true">·</span> 2024</p>
+                <h3 class="sheet-card__name">Mill Lane</h3>
+                <p class="sheet-card__idea"><b>Key idea</b>A low garden wing, so the old house could stay as it was.</p>
+                <a class="link-arrow" href="work.html">Read the case study<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg></a>
+              </div>
+            </li>
+            <li class="sheet-card" data-project="extension">
+              <svg class="sheet-card__drawing" data-drawing role="img" aria-label="Illustrative axonometric: a row of three terrace houses; the middle one has a glass room added on its garden side. The glass room, the key idea, is orange."></svg>
+              <img class="sheet-card__render" src="assets/work/albert-terrace-800.jpg" srcset="assets/work/albert-terrace-800.jpg 800w, assets/work/albert-terrace.jpg 1448w" sizes="(max-width: 860px) 92vw, 44vw" width="1448" height="1086" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--fx:57%;--fy:52%">
+              <div class="sheet-card__block">
+                <p class="sheet-card__meta">Extension <span aria-hidden="true">·</span> Whitstable, Kent <span aria-hidden="true">·</span> 2023</p>
+                <h3 class="sheet-card__name">14 Albert Terrace</h3>
+                <p class="sheet-card__idea"><b>Key idea</b>A glass room that turns a terrace house toward its garden.</p>
+                <a class="link-arrow" href="work.html">Read the case study<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg></a>
+              </div>
+            </li>
+            <li class="sheet-card" data-project="courtyard">
+              <svg class="sheet-card__drawing" data-drawing role="img" aria-label="Illustrative axonometric: the courtyard house from the top of the page, its rooms around a court. The roof over the main wing, the key idea, is orange."></svg>
+              <img class="sheet-card__render" src="assets/work/court-house-800.jpg" srcset="assets/work/court-house-800.jpg 800w, assets/work/court-house.jpg 1448w" sizes="(max-width: 860px) 92vw, 44vw" width="1448" height="1086" alt="" aria-hidden="true" loading="lazy" decoding="async" style="--fx:34%;--fy:24%">
+              <div class="sheet-card__block">
+                <p class="sheet-card__meta">New build <span aria-hidden="true">·</span> Lewes, East Sussex <span aria-hidden="true">·</span> 2025</p>
+                <h3 class="sheet-card__name">Court House</h3>
+                <p class="sheet-card__idea"><b>Key idea</b>Rooms gathered around a court, so every one of them gets the sun.</p>
+                <a class="link-arrow" href="case-study.html">Read the case study<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg></a>
+              </div>
+            </li>
+            <li class="sheet-card sheet-card--end">
+              <p class="sheet-card__ask">Planning something similar?</p>
+              <p class="sheet-card__sub">Tell us about your site on a short call. We'll show you the closest work we have.</p>
+              <div class="sheet-card__actions">
+                <a class="btn btn-primary" href="contact.html">Book a consultation</a>
+                <a class="link-arrow" href="work.html">See all projects<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg></a>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <p class="work__note">Renders are illustrative visualisations of each house.</p>
+      </div>
+    </section>
+
+    <!-- Step inside: the photoreal walkthrough of Court House, opened out of a door-sized slot and scrubbed by scroll.
+         Callouts are live text pinned to features in the film (js/walkin.js). -->
+    <section class="walkin" aria-labelledby="walkin-title" data-walkin>
+      <div class="walkin__pin" data-walkin-pin>
+        <div class="walkin__stage">
+          <div class="walkin__film" data-walkin-film aria-hidden="true">
+            <video muted playsinline preload="auto" tabindex="-1" disablepictureinpicture></video>
+            <img alt="" decoding="async">
+          </div>
+          <span class="walkin__frame" aria-hidden="true"></span>
+          <ul class="walkin__notes" aria-hidden="true">
+            <li class="walkin__note" data-note="0.3,0.55" data-from="0" data-to="0.16"><i></i><span><b>Olive and lavender</b>A garden that needs no lawn</span></li>
+            <li class="walkin__note" data-note="0.6,0.24" data-from="0.04" data-to="0.2"><i></i><span><b>Sussex clay tiles</b>Handmade, like the roofs around it</span></li>
+            <li class="walkin__note" data-note="0.32,0.42" data-from="0.16" data-to="0.3"><i></i><span><b>Lime render</b>Breathes, and softens with age</span></li>
+            <li class="walkin__note" data-note="0.455,0.53" data-from="0.28" data-to="0.44"><i></i><span><b>Solid oak door</b>Set deep, so you arrive in shade</span></li>
+            <li class="walkin__note" data-note="0.8,0.4" data-from="0.5" data-to="0.64"><i></i><span><b>Lime plaster</b>Carries the light into the hall</span></li>
+            <li class="walkin__note" data-note="0.14,0.38" data-from="0.68" data-to="0.82"><i></i><span><b>Built-in oak shelving</b>Made by the joiner who fitted the kitchen</span></li>
+            <li class="walkin__note" data-note="0.63,0.42" data-from="0.86" data-to="1.01"><i></i><span><b>The court</b>Every room opens onto it</span></li>
+          </ul>
+          <p class="walkin__cap" aria-hidden="true">Court House, Lewes · Visualisation, illustrative</p>
+          <span class="walkin__bar" aria-hidden="true"></span>
+        </div>
+        <header class="walkin__head">
+          <p class="walkin__k">Court House, Lewes</p>
+          <h2 id="walkin-title" class="walkin__title">Step inside.</h2>
+          <p class="walkin__lede">Scroll to walk in, the way our clients do on handover day.</p>
+          <ul class="walkin__list"><li><b>Olive and lavender.</b> A garden that needs no lawn.</li><li><b>Sussex clay tiles.</b> Handmade, like the roofs around it.</li><li><b>Lime render.</b> Breathes, and softens with age.</li><li><b>Solid oak door.</b> Set deep, so you arrive in shade.</li><li><b>Lime plaster.</b> Carries the light into the hall.</li><li><b>Built-in oak shelving.</b> Made by the joiner who fitted the kitchen.</li><li><b>The court.</b> Every room opens onto it.</li></ul>
+        </header>
+        <div class="walkin__side">
+          <p><b>From the lane</b>Up the gravel path, through the oak door, and out to the court.</p>
+          <p><b>212 m² · 2025</b>New build, design and delivery.</p>
+        </div>
+        <a class="walkin__go" href="case-study.html">Read the Court House story<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg></a>
+      </div>
+    </section>
+
+    <!-- A quiet stretch: three promises in plain type, read in at the visitor's pace. -->
+    <section class="promises" aria-labelledby="promises-title" data-promises>
+      <div class="promises__inner">
+        <h2 id="promises-title" class="promises__title">What you can count on</h2>
+        <ol class="promises__list">
+          <li class="promise">
+            <h3 class="promise__line" data-read>Start with how you live.</h3>
+            <p class="promise__proof" data-proof>Every design begins with your routines, not a template.</p>
+          </li>
+          <li class="promise">
+            <h3 class="promise__line" data-read>Say the cost early.</h3>
+            <p class="promise__proof" data-proof>We talk budget in the first call, not after the drawings.</p>
+          </li>
+          <li class="promise">
+            <h3 class="promise__line" data-read>Draw it until it's right.</h3>
+            <p class="promise__proof" data-proof>We model and test before anything is built.</p>
+          </li>
+        </ol>
+        <a class="link-arrow promises__link" href="studio.html">Meet the studio
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- What clients say: the visitor picks the worry closest to theirs and reads a client's answer to it.
+         Quotes come from the story bible (tools/story.mjs): one each on the result, the process and the budget. -->
+    <section class="voices" aria-labelledby="voices-title" data-voices>
+      <div class="voices__inner">
+        <div class="voices__side">
+          <h2 id="voices-title" class="voices__title">What clients say</h2>
+          <p class="voices__lede">Most people come to us with one worry. Pick yours.</p>
+          <div class="voices__tabs" role="tablist" aria-label="Client worries" data-tabs>
+            <button class="voices__tab" role="tab" id="vt-0" aria-controls="vq-0" aria-selected="true">
+              <span class="voices__topic">The design</span>Will it feel like us?
+            </button>
+            <button class="voices__tab" role="tab" id="vt-1" aria-controls="vq-1" aria-selected="false" tabindex="-1">
+              <span class="voices__topic">The process</span>Will it be clear what happens next?
+            </button>
+            <button class="voices__tab" role="tab" id="vt-2" aria-controls="vq-2" aria-selected="false" tabindex="-1">
+              <span class="voices__topic">The budget</span>Will it stay on budget?
+            </button>
+          </div>
+        </div>
+
+        <div class="voices__stage" data-stage>
+          <span class="voices__mark" aria-hidden="true">&ldquo;</span>
+          <figure class="voices__quote" role="tabpanel" id="vq-0" aria-labelledby="vt-0" data-quote>
+            <blockquote><p data-say>Every room gets the sun at some point in the day. We didn’t know a house could feel this calm.</p></blockquote>
+            <figcaption>Hannah · Court House · Lewes · 2025</figcaption>
+          </figure>
+          <figure class="voices__quote" role="tabpanel" id="vq-1" aria-labelledby="vt-1" data-quote hidden>
+            <blockquote><p data-say>We always knew what was happening next, and who to call. Marcus answered most questions before we thought to ask them.</p></blockquote>
+            <figcaption>Ellie · Mill Lane · Stroud · 2024</figcaption>
+          </figure>
+          <figure class="voices__quote" role="tabpanel" id="vq-2" aria-labelledby="vt-2" data-quote hidden>
+            <blockquote><p data-say>We were given a cost in the first meeting and it barely moved. The final bill came in within £4,000 of the figure on page one.</p></blockquote>
+            <figcaption>David · Long Reach · Frome · 2024</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing call to action: "The same change, three prices."
+         The section pins and scroll plays a Remotion film of one house elevation through the stages.
+         The same request (a bigger garden window) is an eraser at concept, a redraw at design and a demolition on site.
+         Then the film rewinds to a blank page and the call to action arrives where a change costs nothing. -->
+    <section class="close" aria-labelledby="close-title" data-close>
+      <div class="close__pin" data-close-pin>
+
+        <div class="close__film" data-film aria-hidden="true">
+          <video class="close__video" data-change muted playsinline preload="auto" tabindex="-1" disablepictureinpicture></video>
+          <img class="close__still" data-change-still alt="" decoding="async">
+        </div>
+
+        <!-- what the film shows, stage by stage (also the readable version when motion is reduced) -->
+        <ol class="close__caps" data-caps>
+          <li data-cap><span class="close__stage-name">Consultation</span>Every house has a moment when a change costs nothing.</li>
+          <li data-cap><span class="close__stage-name">Concept</span>At concept, a change is an eraser.</li>
+          <li data-cap><span class="close__stage-name">Design</span>At design, it is a redraw.</li>
+          <li data-cap><span class="close__stage-name">Build</span>On site, it is a demolition.</li>
+          <li data-cap><span class="close__stage-name">Handover</span>Same window. Three very different prices.</li>
+        </ol>
+
+        <figure class="close__chart" data-chart>
+          <svg viewBox="0 0 360 220" role="img" aria-label="Two curves across the stages of a project: freedom to change falls, the cost of a change rises."></svg>
+          <figcaption>
+            <span><i class="key key--cost"></i>Cost of a change</span>
+            <span><i class="key key--free"></i>Freedom to change</span>
+          </figcaption>
+        </figure>
+
+        <div class="close__ruler" data-ruler aria-hidden="true">
+          <ol><li>Consultation</li><li>Concept</li><li>Design</li><li>Build</li><li>Handover</li></ol>
+          <span class="close__marker" data-marker><b>You are here</b></span>
+        </div>
+
+        <div class="close__final" data-final>
+          <h2 id="close-title" class="close__title">
+            <span class="line"><span>Build it right</span></span>
+            <span class="line"><span>the first time.</span></span>
+          </h2>
+          <div class="close__grid">
+            <div class="close__body">
+              <p>A home is the biggest decision most people make, and fixing a mistake after the walls go up costs time and money.</p>
+              <p class="close__solve">A short call with us gets your brief, budget and site on the table before anything is drawn.</p>
+            </div>
+            <div class="beam" data-beam>
+              <div class="close__card">
+                <p class="close__label">A first call covers</p>
+                <ul class="close__list" data-ticks>
+                  <li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="1.5" y="1.5" width="17" height="17" rx="1" /><path d="M5.5 10.5 8.6 13.6 14.8 6.6" pathLength="1" /></svg>Your brief</li>
+                  <li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="1.5" y="1.5" width="17" height="17" rx="1" /><path d="M5.5 10.5 8.6 13.6 14.8 6.6" pathLength="1" /></svg>Your budget</li>
+                  <li><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="1.5" y="1.5" width="17" height="17" rx="1" /><path d="M5.5 10.5 8.6 13.6 14.8 6.6" pathLength="1" /></svg>Your site</li>
+                </ul>
+                <a class="btn btn-primary close__cta" href="contact.html" data-magnetic>Book a consultation</a>
+                <p class="close__note">Free 30-minute call. No obligation. We reply within one working day.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: the site's title block. The wordmark is drawn last, outline then hatching,
+       and finishes as the page reaches its end. -->
+  <footer class="foot" data-foot>
+    <div class="foot__inner">
+      <div class="foot__prompt">
+        <p class="foot__line">Modern homes, drawn before they're built.</p>
+        <div class="foot__ask">
+          <p>Planning a home?</p>
+          <a class="btn btn-primary" href="contact.html">Book a consultation</a>
+        </div>
+      </div>
+
+      <nav class="foot__block" aria-label="Footer">
+        <div class="foot__cell">
+          <h2 class="foot__head">Work</h2>
+          <ul>
+            <li><a href="work-new-builds.html">New builds</a></li>
+            <li><a href="work.html?show=remodel">Remodels</a></li>
+            <li><a href="work.html?show=extension">Extensions</a></li>
+          </ul>
+        </div>
+        <div class="foot__cell">
+          <h2 class="foot__head">Studio</h2>
+          <ul>
+            <li><a href="studio.html">About</a></li>
+            <li><a href="studio.html#approach">Approach</a></li>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+        <div class="foot__cell">
+          <h2 class="foot__head">Read and ask</h2>
+          <ul>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="credentials.html">Request credentials</a></li>
+          </ul>
+        </div>
+        <div class="foot__cell">
+          <h2 class="foot__head">Office</h2>
+          <address>
+            The Old Tannery, 14 Westgate Street<br>Lewes, East Sussex BN7 1YR<br>
+            <a href="mailto:hello@ostrastudio.co.uk">hello@ostrastudio.co.uk</a><br>
+            <a href="tel:+441632960418">01632 960 418</a>
+          </address>
+          <ul class="foot__social">
+            <li><a href="https://www.instagram.com/ostra.studio" rel="noopener">Instagram @ostra.studio</a></li>
+            <li><a href="https://www.linkedin.com/company/ostra-studio" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="foot__mark" aria-hidden="true">
+        <svg class="wordmark" data-wordmark viewBox="0 0 1000 268" preserveAspectRatio="xMidYMax meet"></svg>
+      </div>
+
+      <div class="foot__base">
+        <p>© 2026 Ostra Studio Ltd</p>
+        <ul class="foot__legal">
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="accessibility.html">Accessibility</a></li>
+        </ul>
+        <p>Registered in England and Wales no. 09312847</p>
+        <a class="foot__top" href="#main" data-to-top>Back to top <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" /></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie choices (copy deck wording). Remembered in this browser only. -->
+  <div class="cookies" role="region" aria-label="Cookie choices" data-cookies hidden>
+    <p class="cookies__text">We use cookies to see which pages help and which don't. You choose.</p>
+    <div class="cookies__manage" data-cookies-manage hidden>
+      <label class="cookies__opt"><input type="checkbox" checked disabled> Essential <span>Always on. The site needs these to work.</span></label>
+      <label class="cookies__opt"><input type="checkbox" data-cookies-analytics> Analytics <span>Tells us which pages help.</span></label>
+    </div>
+    <div class="cookies__actions">
+      <button class="btn btn-primary" type="button" data-cookies-accept>Accept all</button>
+      <button class="btn" type="button" data-cookies-essential>Essential only</button>
+      <button class="cookies__link" type="button" data-cookies-toggle aria-expanded="false">Manage</button>
+    </div>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script type="module" src="js/hero.js"></script>
+  <script type="module" src="js/philosophy.js"></script>
+  <script type="module" src="js/work.js"></script>
+  <script type="module" src="js/walkin.js"></script>
+  <script type="module" src="js/promises.js"></script>
+  <script type="module" src="js/voices.js"></script>
+  <script type="module" src="js/close.js"></script>
+  <script type="module" src="js/foot.js"></script>
+</body>
+</html>
